@@ -16,9 +16,9 @@ export default function Register(props) {
     const {navigation} = props;
 
     //1 - DECLARE VARIABLES
-    const [name, setName] = useState("Jaqueline Harrow");
-    const [email, setEmail] = useState("jaq@email.com");
-    const [password, setPassword] = useState("thisisatestpass");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
     const {handleLogin} = useAuth();

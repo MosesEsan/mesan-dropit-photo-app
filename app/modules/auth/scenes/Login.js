@@ -16,8 +16,8 @@ export default function Login(props) {
     const {navigation} = props;
 
     //1 - DECLARE VARIABLES
-    const [email, setEmail] = useState("mosesesan@hotmail.com");
-    const [password, setPassword] = useState("graphpasswordql");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
     const {handleLogin} = useAuth();

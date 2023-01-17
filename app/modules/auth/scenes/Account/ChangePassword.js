@@ -4,13 +4,13 @@ import {Text, View} from 'react-native';
 import {useMutation} from "@apollo/client";
 import {Button} from "@rneui/themed"
 
-import {useAuth} from "../AuthProvider";
-import {UPDATE_PASSWORD} from "../AuthService";
+import {useAuth} from "../../AuthProvider";
+import {UPDATE_PASSWORD} from "../../AuthService";
 
-import AuthContainer from "../components/AuthContainer";
-import TextBox from "../components/AuthTextBox";
+import AuthContainer from "../../components/AuthContainer";
+import TextBox from "../../components/AuthTextBox";
 
-import styles from "./styles";
+import styles from "../styles";
 
 export default function ChangePassword({navigation}) {
     const {updateCurrentUser} = useAuth();
@@ -55,6 +55,7 @@ export default function ChangePassword({navigation}) {
     }, [currentPassword, newPassword]);
 
     async function onSubmit() {
+        setIsSubmitting(true);
         try {
             let data = {currentPassword, newPassword};
             await resetPassword({variables: data});

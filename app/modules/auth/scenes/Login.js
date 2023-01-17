@@ -1,5 +1,5 @@
 import React, {useState, useMemo} from 'react';
-import { View,Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 
 import {useMutation} from "@apollo/client";
 import {Button} from "@rneui/themed";
@@ -29,8 +29,6 @@ export default function Login(props) {
     //===================================================================================================
     //3 - GRAPHQL HANDLERS
     async function onCompleted(data) {
-        console.log(data.login)
-        console.log(data.login.token)
         await handleLogin(data.login);
     }
 
@@ -58,7 +56,7 @@ export default function Login(props) {
     //4 RENDER VIEW
     return (
         <AuthContainer containerStyle={[styles.container]}>
-            <View style={[styles.wrapper]}>
+            <ScrollView style={[styles.wrapper]}>
                 <View style={styles.headerContainer}>
                     <Text style={styles.headerText}>Welcome!</Text>
                     <Text style={styles.subHeader}>Please sign into your account</Text>
@@ -92,7 +90,7 @@ export default function Login(props) {
                         Don't have an account? <Text style={styles.ctaLink}>Register</Text>
                     </Text>
                 </View>
-            </View>
+            </ScrollView>
         </AuthContainer>
     );
 };

@@ -1,7 +1,7 @@
 import React, {useMemo, useContext, useReducer} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-//CREATE REDUCER
+//IMPORT REDUCER
 import reducer, {initialState, LOGGED_IN, LOGGED_OUT, UPDATE_USER} from "./AuthReducer"
 
 // CONFIG KEYS [Storage Keys]===================================

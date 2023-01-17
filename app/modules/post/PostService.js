@@ -2,8 +2,8 @@ import {gql} from "@apollo/client";
 
 // INDEX
 export const GET_DROPS = gql`
-    query getDrops ($latitude: Float, $longitude: Float, $radius: Int, $private: Boolean, $orderBy: DropOrderBy) {
-        drops(latitude: $latitude, longitude: $longitude, radius: $radius, private: $private, orderBy: $orderBy){
+    query getDrops ($latitude: Float!, $longitude: Float!, $radius: Int!, $private: Boolean, $orderBy: DropOrderBy, $showAll: Boolean) {
+        drops(latitude: $latitude, longitude: $longitude, radius: $radius, private: $private, orderBy: $orderBy, showAll: $showAll){
             id
             image
             caption
@@ -134,7 +134,7 @@ export const DELETE_DROP = gql`
     }
 `;
 
-//READ
+//LIKE
 export const LIKE_DROP = gql`
     mutation likeDrop($dropId: ID!, $value: Boolean!){
         like(dropId: $dropId, value: $value){
@@ -143,36 +143,13 @@ export const LIKE_DROP = gql`
     }
 `;
 
-
-//INDEX
-export const GET_COMMENTS = gql`
-    query getComments($dropId: Int!) {
-        comments (dropId: $dropId) {
+//REPORT
+export const REPORT_DROP = gql`
+    mutation reportDrop($dropId: ID!, $reason: String!){
+        report(dropId: $dropId, reason: $reason){
             id
-            text
-            createdAt
+            userId
             dropId
-            user {
-                id
-                name
-                image
-            }
-        }
-    }
-`;
-
-//CREATE
-export const ADD_COMMENT = gql`
-    mutation addComment($dropId: ID!, $text: String!){
-        addComment(dropId: $dropId, text: $text){
-            id
-            text
-            createdAt
-            user {
-                id
-                name
-                image
-            }
         }
     }
 `;

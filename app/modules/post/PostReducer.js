@@ -94,7 +94,6 @@ const reducer = (state = initialState, action) => {
         }
 
         case LOGGED_OUT:{
-            alert("logged outr")
             return {...state, ...initialState};
         }
 

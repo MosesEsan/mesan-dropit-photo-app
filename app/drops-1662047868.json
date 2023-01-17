@@ -1,0 +1,1054 @@
+{
+
+  "data": {
+    "0duoe4ukYDg7donCp3Tj": {
+      "caption": "Waiting for smoothies ",
+      "hash": "eyckpz17pm",
+      "id": "1231-42314-41120",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FFA1CC2EA-2FAF-4BB8-880E-AF8C21CD077C.jpg?alt=media&token=d1557544-d4de-4e30-8e7f-7f1f9709005e",
+      "location": {
+        "coords": {
+          "accuracy": 9.425041343594861,
+          "altitude": 22.968449947129244,
+          "altitudeAccuracy": 6.312916899014116,
+          "heading": 206.31020922221572,
+          "latitude": 38.71086987477815,
+          "longitude": -9.149578025386903,
+          "speed": 0.13945963978767395
+        },
+        "timestamp": 1628938376999.5012
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "2iMOXYBWxoyFAeuvNua5": {
+      "caption": "Brunch #Lisbon",
+      "hash": "eyckpz17tc",
+      "id": "4120-20122-42222",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F2DE1AAE5-D7D2-4A94-8D7F-19BB6D581436.jpg?alt=media&token=ff55e195-6dcb-4b45-8bab-da9d40440f94",
+      "location": {
+        "coords": {
+          "accuracy": 11.81298823969354,
+          "altitude": 29.73608146426057,
+          "altitudeAccuracy": 19.774608419470454,
+          "heading": 175.19575544300685,
+          "latitude": 38.71093560211069,
+          "longitude": -9.149640674107038,
+          "speed": 0.16719552874565125
+        },
+        "timestamp": 1628853257610.162
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "4iNGXZX88E5ATSz7b3vj": {
+      "caption": "Howth 2021",
+      "hash": "gc7xtyxd1g",
+      "id": "242422-233014-4124",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F2ECD3037-186B-4518-B552-C65578206DAD.jpg?alt=media&token=b0cfd72f-3134-4602-b351-8103d9ac948d",
+      "location": {
+        "coords": {
+          "accuracy": 23.80623094301274,
+          "altitude": 31.075726264454815,
+          "altitudeAccuracy": 18.16531391609647,
+          "heading": 171.7834887310966,
+          "latitude": 53.38567662409512,
+          "longitude": -6.065055604161545,
+          "speed": 0.38770216703414917
+        },
+        "timestamp": 1626542840356.728
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "99AuUTNtppvGlF597bF4": {
+      "caption": "Waiting for chips.",
+      "hash": "gc6pmspvqv",
+      "id": "3210-122414-4214",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F9969C2F0-BBF7-4BE0-B4F2-00828EC1FE82.jpg?alt=media&token=6ea8253a-2d68-414f-895e-a0e4f17248c9",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 47.17531204223633,
+          "altitudeAccuracy": 11.550309181213379,
+          "heading": -1,
+          "latitude": 53.32856580090663,
+          "longitude": -8.18486804234766,
+          "speed": -1
+        },
+        "timestamp": 1623594148157.5872
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-13T13:22:28.000Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "9dzXNeeQGm0mgsEeX6xu": {
+      "caption": "Dundalk Tingz, Michael’s Birthday 2021",
+      "hash": "gce7q23ww2",
+      "id": "11420-242114-42010",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FD7E4F8FC-6286-4147-B4CE-3AD5FD8D58D2.jpg?alt=media&token=332f59e5-b559-4b8c-a722-746670e8a098",
+      "location": {
+        "coords": {
+          "accuracy": 43.53966723735915,
+          "altitude": 5.823249220690698,
+          "altitudeAccuracy": 6.934102868444601,
+          "heading": 281.4351190410846,
+          "latitude": 54.01128083743989,
+          "longitude": -6.4026927083015766,
+          "speed": 1.8730610609054565
+        },
+        "timestamp": 1622319778180.1758
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T19:22:58.000Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "BYuosr4An8g2gqGrNRPk": {
+      "caption": "Getting ready for the drive back to Dublin",
+      "hash": "gce7nqtwhm",
+      "id": "24312-32321-4232",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F993FF842-E742-4BD5-A798-3222B33E1E4D.jpg?alt=media&token=9c6ed80d-f293-4533-a26c-9d958a2f49c1",
+      "location": {
+        "coords": {
+          "accuracy": 9.701985851178536,
+          "altitude": 6.424567588393067,
+          "altitudeAccuracy": 6.2273601365175955,
+          "heading": -1,
+          "latitude": 54.00160815610515,
+          "longitude": -6.397291480177543,
+          "speed": 0.12233861535787582
+        },
+        "timestamp": 1622379830401.8193
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-30T12:03:50.000Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "Dzi3khdISQhA9tF6jS8V": {
+      "caption": "NICE VIEW",
+      "hash": "gceybg0qkb",
+      "id": "22224-201024-41321",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FABF616BB-447B-45DB-B448-805F2E513840.jpg?alt=media&token=a003d2c4-3545-428c-b225-237d46c5f1f0",
+      "location": {
+        "coords": {
+          "accuracy": 22.90630636505818,
+          "altitude": 120.05906073787875,
+          "altitudeAccuracy": 11.259019667263848,
+          "heading": 163.02280795218604,
+          "latitude": 54.64157713869232,
+          "longitude": -5.943047445313562,
+          "speed": 0.31108132004737854
+        },
+        "timestamp": 1623092351818.049
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-07T17:59:11.000Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "EQUL790NMWS8H31oCg9P": {
+      "caption": "Up the Hill",
+      "hash": "eyckpz1guh",
+      "id": "340-220-422",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F5AED3C40-39EE-4541-AC55-9E29D79C6A02.jpg?alt=media&token=5d61129f-e509-45a8-8b02-24841078df5a",
+      "location": {
+        "coords": {
+          "accuracy": 8.416714003497647,
+          "altitude": 45.3383531793952,
+          "altitudeAccuracy": 5.571810504805063,
+          "heading": 75.34086016018357,
+          "latitude": 38.710992868626576,
+          "longitude": -9.149026579106783,
+          "speed": 0
+        },
+        "timestamp": 1628856187998.9368
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "EpPr5EINBu0ZDK1nbm6O": {
+      "caption": "Selfie Tingz BELFAST ",
+      "hash": "gcey9kecp2",
+      "id": "241012-3221-4113",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F103A3150-EE5C-421B-B473-E5D0E6829CFD.jpg?alt=media&token=e70b59ba-c3fb-4c6d-8211-ced7b82c822c",
+      "location": {
+        "coords": {
+          "accuracy": 7.556302102913157,
+          "altitude": 2.5000795033543994,
+          "altitudeAccuracy": 7.130986010417997,
+          "heading": 284.7672715918313,
+          "latitude": 54.604972522256915,
+          "longitude": -5.916167601552922,
+          "speed": 0.9127069115638733
+        },
+        "timestamp": 1622913817999.5676
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-05T16:23:37.000Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "FrQAHNr299x57AQfRZNW": {
+      "caption": "Drinks and tings",
+      "hash": "eyckpybs70",
+      "id": "30022-2012-42010",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F12DA5EC2-B1FC-4CBC-BC04-CB09787E2E98.jpg?alt=media&token=9f7a9c39-d36a-496f-851c-b7e425d1e1c2",
+      "location": {
+        "coords": {
+          "accuracy": 9.835960792330049,
+          "altitude": 20.899228799598745,
+          "altitudeAccuracy": 5.710195268780256,
+          "heading": 202.7962663761854,
+          "latitude": 38.70968774530034,
+          "longitude": -9.150787567714756,
+          "speed": 0.10441213846206665
+        },
+        "timestamp": 1628882214156.1326
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "I6ZpuEVdkXFE5LN4pVGQ": {
+      "caption": "Call me the king",
+      "hash": "gc7rmu0jtq",
+      "id": "211110-202014-4104",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F76607554-10F7-4628-8287-67CF75558154.jpg?alt=media&token=ff633b41-9f24-4185-b407-389515689bae",
+      "location": {
+        "coords": {
+          "accuracy": 17.081693424780237,
+          "altitude": 63.03902034826858,
+          "altitudeAccuracy": 7.167346031725984,
+          "heading": 121.23495572997498,
+          "latitude": 53.328614597300835,
+          "longitude": -6.4267742723335415,
+          "speed": 0.19441139698028564
+        },
+        "timestamp": 1622305464000.4788
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T15:24:24.000Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "JWMFVQsZycrublV1pnPa": {
+      "caption": "Cork 2021",
+      "hash": "gc4p73fem6",
+      "id": "131223-231311-4222",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FB2A25DA9-DCAB-46A5-8D2C-170F40C0D499.jpg?alt=media&token=68eec2fa-acba-4fe0-917d-740a35a5602a",
+      "location": {
+        "coords": {
+          "accuracy": 7.5543997045206535,
+          "altitude": 8.065430260739333,
+          "altitudeAccuracy": 5.938742332753612,
+          "heading": 283.1432532306932,
+          "latitude": 51.90959859865852,
+          "longitude": -8.29101821456777,
+          "speed": 0.37233826518058777
+        },
+        "timestamp": 1627144292275.2534
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "KEZvnbjB1DJofTLHic7d": {
+      "caption": "BOTANIC GARDENS BELFAST ",
+      "hash": "gcey8bt4ev",
+      "id": "33021-212113-4142",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FB34E74D0-C9CC-42D9-8467-08800481057C.jpg?alt=media&token=24631045-ffc7-4779-9569-8bb321c3ad78",
+      "location": {
+        "coords": {
+          "accuracy": 6.774600569273215,
+          "altitude": 16.354420606897733,
+          "altitudeAccuracy": 5.850765589676396,
+          "heading": 325.0904567659369,
+          "latitude": 54.58328534415439,
+          "longitude": -5.936567301023395,
+          "speed": 1.2021111249923706
+        },
+        "timestamp": 1623007306693.9497
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-06T18:21:46.693Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "MdWEUJ4vEvPaGxLTPdut": {
+      "caption": "BELFAST CASTLE 2021",
+      "hash": "gceybg2etx",
+      "id": "12224-121122-41310",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FCC21494B-E9FD-4A58-BE26-7BDBE995CA7B.jpg?alt=media&token=00528521-9af6-4e14-a2ac-dcac6ea0aadc",
+      "location": {
+        "coords": {
+          "accuracy": 6.372604439195768,
+          "altitude": 125.65803881455213,
+          "altitudeAccuracy": 6.50728907482456,
+          "heading": 130.0645749884036,
+          "latitude": 54.642516599316814,
+          "longitude": -5.942670302691586,
+          "speed": 0.2000243365764617
+        },
+        "timestamp": 1623091857003.0652
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-07T17:50:57.003Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "NDXtLwaPOwFV4598GFrT": {
+      "caption": "LISBON 2021",
+      "hash": "eycs83g4r3",
+      "id": "12133-12113-431",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F197CCA15-1D9C-45D0-A316-EE5F16B4F912.jpg?alt=media&token=72392ed1-de4d-4485-9cdb-785e53039342",
+      "location": {
+        "coords": {
+          "accuracy": 10.671731161177068,
+          "altitude": 88.82564612669228,
+          "altitudeAccuracy": 12.650536112170549,
+          "heading": 106.25022786537663,
+          "latitude": 38.769771476787426,
+          "longitude": -9.125199524615754,
+          "speed": 8.561812400817871
+        },
+        "timestamp": 1628800647291.2712
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "NhefR7oNB8ueTNQQ2w4x": {
+      "caption": "Taxi to the hostel 🇵🇹 ",
+      "hash": "eyckrxuhw7",
+      "id": "32210-143-4314",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F0D2B5B3C-BB36-429E-A072-1DF42E32352F.jpg?alt=media&token=d6193ea1-69f3-44fb-84e4-a1ad03abd579",
+      "location": {
+        "coords": {
+          "accuracy": 16.842906326928208,
+          "altitude": 91.19425767753333,
+          "altitudeAccuracy": 30.440178591956528,
+          "heading": 253.3200822389946,
+          "latitude": 38.75918478521078,
+          "longitude": -9.156831775960955,
+          "speed": 25.504926681518555
+        },
+        "timestamp": 1628800789612.3708
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "OR8GqgIxK571ib7YMEYf": {
+      "caption": "On the way back to Dublin ",
+      "hash": "gce3w7y1f3",
+      "id": "1112-3124-41212",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FFB13DA94-66BB-4A83-938F-FB51E985EE19.jpg?alt=media&token=4a1c9782-218b-4d4a-885c-28786a48306d",
+      "location": {
+        "coords": {
+          "accuracy": 4.6828721445051045,
+          "altitude": 22.630988465622067,
+          "altitudeAccuracy": 3.4489484645333572,
+          "heading": 181.45571899414062,
+          "latitude": 53.72207827673781,
+          "longitude": -6.396686778782437,
+          "speed": 26.831826606690413
+        },
+        "timestamp": 1622385844000.7395
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-30T13:44:04.000Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "OXHRNVNgyDYbIcJ45lhW": {
+      "caption": "VIEWS 🙏🏾",
+      "hash": "eyckpzn1h2",
+      "id": "231021-022-4112",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FE67CC061-8901-4771-912C-AD2D285B77FA.jpg?alt=media&token=355be1d5-6e9f-4e94-91d8-917ba2c5013d",
+      "location": {
+        "coords": {
+          "accuracy": 5.23310059671914,
+          "altitude": 75.96318552922457,
+          "altitudeAccuracy": 3.8829445317938514,
+          "heading": 23.795194385126226,
+          "latitude": 38.71050132447876,
+          "longitude": -9.14318691867503,
+          "speed": 0
+        },
+        "timestamp": 1628857018000.5947
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "PvL3BtgmRKs9Z0SVoWuN": {
+      "caption": "Late Night Working ",
+      "hash": "gc7rmu0hv8",
+      "id": 1,
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FB1719D50-EB9A-4E41-9782-8DE0CF876B5A.jpg?alt=media&token=739d9607-22f9-4007-9221-6600d7d0c303",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 64.23114013671875,
+          "altitudeAccuracy": 10,
+          "heading": -1,
+          "latitude": 53.32845645960146,
+          "longitude": -6.42676297698414,
+          "speed": -1
+        },
+        "timestamp": 1621905638676.6272
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-25T00:20:38.676Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "PyAPAUOYYowYw1ws90Ni": {
+      "caption": "Belfast Day 3 - 2021",
+      "hash": "gcey8bsc70",
+      "id": "10244-13221-4211",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FBCFA66E5-1CF3-4500-9D37-03D4BE929637.jpg?alt=media&token=b26d3176-a330-439e-8de6-3d63370e4b4c",
+      "location": {
+        "coords": {
+          "accuracy": 8.050895602793606,
+          "altitude": 17.58411930935995,
+          "altitudeAccuracy": 6.305748605671142,
+          "heading": 278.3050030572398,
+          "latitude": 54.58303996999337,
+          "longitude": -5.9369415100716205,
+          "speed": 0.43335282802581787
+        },
+        "timestamp": 1623007129378.6626
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-06T18:18:49.378Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "Q4XPOjj4Ezz7mbzuqHS9": {
+      "caption": "VIEWS FROM THE ROOFTOP ",
+      "hash": "eyckpybs6t",
+      "id": "212111-12121-42220",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FD0DA87E2-F39D-4663-B87B-A8C5800EB002.jpg?alt=media&token=60aa7cc4-729f-4892-ab6f-125cc7420a7f",
+      "location": {
+        "coords": {
+          "accuracy": 9.350836441713748,
+          "altitude": 20.65568790521165,
+          "altitudeAccuracy": 5.783298840888849,
+          "heading": 108.93306550424633,
+          "latitude": 38.709712875256436,
+          "longitude": -9.150813506962429,
+          "speed": 0.07332271337509155
+        },
+        "timestamp": 1628882153125.1575
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "QzeEcErXOVYgH9kgv1Qc": {
+      "caption": "Beach Day",
+      "hash": "eyck592tuy",
+      "id": "23121-21302-42320",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FA4857D68-F470-4ACF-9174-1A9A731170B0.jpg?alt=media&token=5a293a23-99a6-45af-8cfa-f7c9d7c76b7e",
+      "location": {
+        "coords": {
+          "accuracy": 7.566544553659328,
+          "altitude": 1.709175978305673,
+          "altitudeAccuracy": 5.792648992586503,
+          "heading": 280.81981504587515,
+          "latitude": 38.679762462776004,
+          "longitude": -9.337485260490439,
+          "speed": 0.27871736884117126
+        },
+        "timestamp": 1628952133955.1038
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "RApWnsYI9fFIwyDqeFTN": {
+      "TIMESTAMP": {
+        "__time__": "2021-06-05T16:27:50.000Z"
+      },
+      "caption": "BELFAST 2021",
+      "hash": "gcey9k4xy4",
+      "id": "3313-23302-4120",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F722AEBB5-3757-4209-86DE-D151339863E3.jpg?alt=media&token=41309ff3-4524-4054-a83a-27ae1906a8cc",
+      "location": {
+        "coords": {
+          "accuracy": 9.334770090870393,
+          "altitude": 2.7305603262925047,
+          "altitudeAccuracy": 5.840342676026052,
+          "heading": 169.9432252006873,
+          "latitude": 54.603395562782076,
+          "longitude": -5.917936592694963,
+          "speed": 1.0678658485412598
+        },
+        "timestamp": 1622914070000.6084
+      },
+      "privacy": 0,
+      "radius": 3,
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "Td49DAjGuNtSqehzgwzc": {
+      "caption": "Kicking It 🦵 ⚽️ ",
+      "hash": "gc4p73fes4",
+      "id": "30302-12224-4213",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FFB61369F-078F-4B53-8996-D10BC276AC55.jpg?alt=media&token=d410bc04-6ce2-41c0-a47b-7277fc03a08c",
+      "location": {
+        "coords": {
+          "accuracy": 9.107994280357062,
+          "altitude": 7.829472133905838,
+          "altitudeAccuracy": 5.6061902925282245,
+          "heading": 330.3734097549485,
+          "latitude": 51.90964049744219,
+          "longitude": -8.29106755766174,
+          "speed": 0.16031283140182495
+        },
+        "timestamp": 1627148784116.145
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "UwfsmaDkL9ouLONhMT73": {
+      "caption": "Getting food before the trip to Dundalk",
+      "hash": "gc7rw2fff8",
+      "id": "13220-3220-41221",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FD3DBA450-471E-4947-9E51-231374C5D03C.jpg?alt=media&token=4e71c1a2-fac2-4f7a-b327-0eb44dae7fb8",
+      "location": {
+        "coords": {
+          "accuracy": 4.811855292904837,
+          "altitude": 59.292054519988596,
+          "altitudeAccuracy": 3.2665862414656295,
+          "heading": 179.132391829524,
+          "latitude": 53.354203289880196,
+          "longitude": -6.401143864619187,
+          "speed": 0
+        },
+        "timestamp": 1622306720000.5317
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T15:45:20.000Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "VJCEK8EQc6o361fonkbd": {
+      "caption": "Cork 2021 - Ready to eat :)",
+      "hash": "gc4pm4vpdf",
+      "id": "20414-3030-42412",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F395A3F25-EB01-4337-95B6-EE870FF18D3F.jpg?alt=media&token=b9d8477a-01a8-40ec-aed3-3a831dbd3548",
+      "location": {
+        "coords": {
+          "accuracy": 9.354444370919559,
+          "altitude": 14.757511821613164,
+          "altitudeAccuracy": 7.67906098751888,
+          "heading": 263.80448745629906,
+          "latitude": 51.91582286672976,
+          "longitude": -8.210785586832296,
+          "speed": 30.603076934814453
+        },
+        "timestamp": 1627152421798.068
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "aAvx9QgkIe94ZS9duNvf": {
+      "caption": "Queens University Belfast ",
+      "hash": "gcey8bvfd1",
+      "id": "122414-24141-4024",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F342970FC-C840-479F-9C13-FAC0EFB9DDB3.jpg?alt=media&token=d382eee8-a777-4e63-9680-189947a88239",
+      "location": {
+        "coords": {
+          "accuracy": 6.13576266104434,
+          "altitude": 15.088909343319813,
+          "altitudeAccuracy": 5.527843336588371,
+          "heading": 21.932806909700986,
+          "latitude": 54.584633662686116,
+          "longitude": -5.9356188064691455,
+          "speed": 0.5983113050460815
+        },
+        "timestamp": 1623007546037.1296
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-06T18:25:46.037Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "aLAvA7WlAXgw7sETcKEy": {
+      "caption": "Morning Swim",
+      "hash": "eyckpybsdf",
+      "id": "22414-102024-4414",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F4481D46A-A3EB-4482-ACBA-245058FD9FD4.jpg?alt=media&token=6dbe4bc9-7ce8-4278-9350-06082d0abbe6",
+      "location": {
+        "coords": {
+          "accuracy": 27.291913771458496,
+          "altitude": 19.921608896094924,
+          "altitudeAccuracy": 7.234606298655467,
+          "heading": 304.65302862484515,
+          "latitude": 38.70973870461975,
+          "longitude": -9.150796321002922,
+          "speed": 0.388455867767334
+        },
+        "timestamp": 1628929988165.0486
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "c9PqlnngoLVWNph755aS": {
+      "caption": "Taxi to the hostel 🇵🇹 ",
+      "hash": "eyckrxuhw7",
+      "id": "13244-42222-4112",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F0D2B5B3C-BB36-429E-A072-1DF42E32352F.jpg?alt=media&token=0ad34d1e-ce7c-4110-9497-1d522b64f9e4",
+      "location": {
+        "coords": {
+          "accuracy": 16.842906326928208,
+          "altitude": 91.19425767753333,
+          "altitudeAccuracy": 30.440178591956528,
+          "heading": 253.3200822389946,
+          "latitude": 38.75918478521078,
+          "longitude": -9.156831775960955,
+          "speed": 25.504926681518555
+        },
+        "timestamp": 1628800789612.3708
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "d0bAq7XOz6ODUndi6ZIP": {
+      "caption": "Just Living 2021",
+      "hash": "gce7q23z59",
+      "id": "30232-121312-41211",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F5FD627AC-7D0D-472D-B077-B50DDA5192B8.jpg?alt=media&token=0930f193-7e95-40b1-a5d8-308248086499",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 11.923966179223527,
+          "altitudeAccuracy": 3.356309912586161,
+          "heading": -1,
+          "latitude": 54.0113717750246,
+          "longitude": -6.402468577280131,
+          "speed": -1
+        },
+        "timestamp": 1622320021726.795
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T19:27:01.726Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "fYra9bKG86dnCk5tLM0v": {
+      "caption": "Happy Birthday Michael 2021",
+      "hash": "gce7q23yfy",
+      "id": "401-3022-43024",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F953EAB17-7161-44A6-8089-EEBA849428A7.jpg?alt=media&token=ad59b1cb-a86d-46d8-99a6-56671a04dd20",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 11.923966179223527,
+          "altitudeAccuracy": 3.3423713322755346,
+          "heading": -1,
+          "latitude": 54.011356971038126,
+          "longitude": -6.402506780684212,
+          "speed": -1
+        },
+        "timestamp": 1622319904245.839
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T19:25:04.245Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "fdxoWFEmGmBZEbZ1SlcJ": {
+      "caption": "Golf Course Ballinasloe ",
+      "hash": "gcd2hr01sm",
+      "id": "31124-03024-4011",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FDCB0CC6B-533F-423A-B65F-C6D9B4C51DC2.jpg?alt=media&token=726809d6-1b2f-416c-8a35-81cf7c1e7e20",
+      "location": {
+        "coords": {
+          "accuracy": 5.906232229462147,
+          "altitude": 60.558340875431895,
+          "altitudeAccuracy": 11.173604393535701,
+          "heading": 337.1476445615444,
+          "latitude": 53.476240494618814,
+          "longitude": -7.898985339924896,
+          "speed": 0.2669785618782041
+        },
+        "timestamp": 1623603871998.058
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-13T16:04:31.998Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "feBRcAsw5YGIoWjG9Q3e": {
+      "caption": "BELFAST CASTLE ",
+      "hash": "gceybg2fxu",
+      "id": "24224-41310-41314",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F0C261132-98A8-4F32-A5A4-7DA6B27FEAA6.jpg?alt=media&token=c557319a-aabc-49b9-835c-d08bf2ccf5f5",
+      "location": {
+        "coords": {
+          "accuracy": 4.91393861674181,
+          "altitude": 117.79307737480849,
+          "altitudeAccuracy": 3.1109073119722503,
+          "heading": -1,
+          "latitude": 54.642331571702165,
+          "longitude": -5.942238304317554,
+          "speed": 0.26639184862253257
+        },
+        "timestamp": 1623092143939.45
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-07T17:55:43.939Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "ffxqNB1pFxYoYSiu4pNe": {
+      "caption": "Testing",
+      "hash": "gc7rmu0hjr",
+      "id": 5,
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F94788819-3E99-41E5-ADB7-9E057D731323.jpg?alt=media&token=49b41484-8f47-471b-8147-7f320d4a0e41",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 64.40905380249023,
+          "altitudeAccuracy": 10,
+          "heading": -1,
+          "latitude": 53.328365829024804,
+          "longitude": -6.426775981413599,
+          "speed": -1
+        },
+        "timestamp": 1622296650440.7083
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T12:57:30.440Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "hJUGHGLOMPDkAIebbU8E": {
+      "caption": "Marshes Shopping Center Dundalk ",
+      "hash": "gce7nqmp61",
+      "id": "221413-14230-4102",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F859456CA-373C-42B7-B427-2E1DF42C5703.jpg?alt=media&token=46a2269b-c228-4a63-a77c-d8c77127a674",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 6.3338365119549,
+          "altitudeAccuracy": 2.543966947973319,
+          "heading": -1,
+          "latitude": 54.00042921575311,
+          "longitude": -6.398071110428875,
+          "speed": -1
+        },
+        "timestamp": 1622378229852.107
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-30T11:37:09.852Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "hlpZnYxcBgW5Wrfkn9Qm": {
+      "caption": "Testing ",
+      "hash": "gc7rmu0m0q",
+      "id": 4,
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F5A8D2473-FEC4-4D83-B136-F897C519ED4D.jpg?alt=media&token=c9fb0ce5-43e1-4117-bac1-7ccadc071bba",
+      "location": {
+        "coords": {
+          "accuracy": 17.514009480811584,
+          "altitude": 63.28149608723372,
+          "altitudeAccuracy": 7.04901490552716,
+          "heading": 166.4267662343473,
+          "latitude": 53.32852955209656,
+          "longitude": -6.426643727785039,
+          "speed": 0.8489061594009399
+        },
+        "timestamp": 1622304023674.6638
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T15:00:23.674Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "iy7dfbrprhVAA8pEhbPR": {
+      "caption": "Weekend in Belfast",
+      "hash": "gcey9kmw3e",
+      "id": "20224-022-4110",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F29B34178-4A6C-4CEC-B5DC-75682E394F59.jpg?alt=media&token=2e68038a-ce6a-4c9f-aa50-1b9a16315ae3",
+      "location": {
+        "coords": {
+          "accuracy": 6.488371344920732,
+          "altitude": 2.0028139209724714,
+          "altitudeAccuracy": 5.825755868970489,
+          "heading": 298.8193976968513,
+          "latitude": 54.604513156988865,
+          "longitude": -5.91400834828522,
+          "speed": 1.0010414123535156
+        },
+        "timestamp": 1622913683992.4421
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-06-05T16:21:23.992Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "j4d87pXH8GbGuQYt0Fii": {
+      "caption": "TRAM",
+      "hash": "eyckpz17eh",
+      "id": "11012-2314-41320",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FEF5C4914-B232-4866-BC0A-BEE1292905F5.jpg?alt=media&token=ebb633ec-e094-411c-ad7a-9987ce31396e",
+      "location": {
+        "coords": {
+          "accuracy": 16.980663277888816,
+          "altitude": 29.4573898004271,
+          "altitudeAccuracy": 16.999115117303546,
+          "heading": 276.2303916618805,
+          "latitude": 38.710954620299894,
+          "longitude": -9.149764694860075,
+          "speed": 0.28761741518974304
+        },
+        "timestamp": 1628854061091.7573
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "kQlK5Emi2a6kG84IWWdB": {
+      "caption": "Gcdjb",
+      "hash": "gc7rmu04vy",
+      "id": 2,
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F9372547C-8A9F-4F92-A600-D959E4272B9F.jpg?alt=media&token=17090d32-bd8e-4f9f-86b8-64a8e0f7e870",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 64.58197021484375,
+          "altitudeAccuracy": 10,
+          "heading": -1,
+          "latitude": 53.32814337162814,
+          "longitude": -6.426749162373753,
+          "speed": -1
+        },
+        "timestamp": 1621897712618.4302
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-24T22:08:32.618Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "pgw4QIsRM0gCsmLyJ6NL": {
+      "caption": "Cork 2021 #2",
+      "hash": "gc4p73fes0",
+      "id": "102110-112113-43022",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F544741B8-09A1-4836-869F-4298A1799031.jpg?alt=media&token=21428119-95f3-413f-92d3-72ed4146148d",
+      "location": {
+        "coords": {
+          "accuracy": 11.928848132534092,
+          "altitude": 8.476894059695056,
+          "altitudeAccuracy": 9.081113562185148,
+          "heading": 333.2570266261733,
+          "latitude": 51.909629902136174,
+          "longitude": -8.291068520156543,
+          "speed": 0.1043921485543251
+        },
+        "timestamp": 1627147256132.4412
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "qDAyF5XlFwODxQ5WzYPx": {
+      "caption": "YUM 🤤 ",
+      "hash": "eyckpz17fw",
+      "id": "2144-23430-43013",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F981BCD1F-AE42-4FAF-A56D-289A6B28F9FA.jpg?alt=media&token=39de5993-4fef-4bb4-aa8b-4fa14c53ee49",
+      "location": {
+        "coords": {
+          "accuracy": 18.829571670565446,
+          "altitude": 34.958505038326074,
+          "altitudeAccuracy": 24.920788717217704,
+          "heading": 235.04932013083524,
+          "latitude": 38.71100431619067,
+          "longitude": -9.14978420490209,
+          "speed": 0.5092378854751587
+        },
+        "timestamp": 1628854450113.5994
+      },
+      "privacy": 1,
+      "radius": 3,
+      "__collections__": {}
+    },
+    "sfocemwbiSn0ZQEfxD48": {
+      "caption": "My untidied bed",
+      "hash": "gc7rmu0jh8",
+      "id": "301020-30210-41223",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F66C0B4E4-5BA8-4B07-93F5-A20253976855.jpg?alt=media&token=5c99883c-8e5e-4f5b-af7a-e1b94011325c",
+      "location": {
+        "coords": {
+          "accuracy": 58.63899338802115,
+          "altitude": 63.43012948197736,
+          "altitudeAccuracy": 14.429357497487688,
+          "heading": 108.76495134987516,
+          "latitude": 53.328499903863886,
+          "longitude": -6.426799844787668,
+          "speed": 0.2949822247028351
+        },
+        "timestamp": 1622304302629.4788
+      },
+      "privacy": 0,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T15:05:02.629Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "uFeeeUg4VT7O4lrVjaGU": {
+      "caption": "Testing Private",
+      "hash": "gc7rmu0hy6",
+      "id": "2103-202412-41212",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2F7DDF8807-43A5-4C6D-B9B7-29D5FB1A29D8.jpg?alt=media&token=362d0a2c-c39e-45b4-8a2a-6a0753e4a6d5",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 64.51052474975586,
+          "altitudeAccuracy": 19.096712112426758,
+          "heading": -1,
+          "latitude": 53.32846750132598,
+          "longitude": -6.4267275283665715,
+          "speed": -1
+        },
+        "timestamp": 1629390858164.877
+      },
+      "privacy": 1,
+      "radius": 3,
+      "uid": "oanrjCTsceXb9exZ5TlPEtvjfoa2",
+      "__collections__": {}
+    },
+    "xM4DAoLUgts6Er9J3yCy": {
+      "caption": "Vcbn",
+      "id": 3,
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FBC7DC05D-CC1A-4160-95EC-8C0D65706625.jpg?alt=media&token=f07f52c7-6636-4477-b96e-44305a315ee3",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 64.3552017211914,
+          "altitudeAccuracy": 10,
+          "heading": -1,
+          "latitude": 53.328356967947016,
+          "longitude": -6.42679308273226,
+          "speed": -1
+        },
+        "timestamp": 1621896539172.903
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-24T21:48:59.172Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    },
+    "y2zLKGi6Epo3ItwOL6MF": {
+      "caption": "31 years 🙏🏾",
+      "hash": "gce7q23zhg",
+      "id": "24422-132312-41010",
+      "image": "https://firebasestorage.googleapis.com/v0/b/dropit-geo-app.appspot.com/o/drop-photos%2FB885D05D-1FD5-486A-9946-DFC006299437.jpg?alt=media&token=da00cc5d-8d55-4886-9398-195e2800b1ec",
+      "location": {
+        "coords": {
+          "accuracy": 65,
+          "altitude": 11.923966179223527,
+          "altitudeAccuracy": 3.409864659358678,
+          "heading": -1,
+          "latitude": 54.011382185496146,
+          "longitude": -6.402412433014941,
+          "speed": -1
+        },
+        "timestamp": 1622320316009.412
+      },
+      "privacy": 1,
+      "radius": 3,
+      "timestamp": {
+        "__time__": "2021-05-29T19:31:56.009Z"
+      },
+      "uid": "hYU5rRirW7MAk8swsGQNjypMMCq1",
+      "__collections__": {}
+    }
+  }
+}

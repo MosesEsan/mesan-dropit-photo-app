@@ -16,18 +16,14 @@ const styles = StyleSheet.create({
     },
 
     headerText: {
-        fontWeight: "800",
         fontSize: 28,
         lineHeight: 46,
-        fontFamily: 'Helvetica Neue',
         textAlign:"center",
         color: "#fff"
     },
 
     subHeader: {
-        fontWeight: "500",
         fontSize: 15,
-        fontFamily: 'Helvetica Neue',
         textAlign:"center",
         color: "#fff"
     },
@@ -65,8 +61,7 @@ const styles = StyleSheet.create({
     labelText: {
         color: "#fff",
         textAlign: "center",
-        fontWeight: "400",
-        fontSize: 15
+        fontSize: 14
     }
 });
 

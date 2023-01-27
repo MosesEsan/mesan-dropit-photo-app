@@ -2,32 +2,32 @@ import React, {useState, useMemo} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 import {useMutation} from "@apollo/client";
-import {Button} from "@rneui/themed";
+import {useTheme} from "@react-navigation/native";
 
 import {useAuth} from "../AuthProvider";
 import {LOGIN} from "../AuthService";
 
 import AuthContainer from "../components/AuthContainer";
-import TextBox from "../components/AuthTextBox";
+import {AuthForm} from "../components/AuthTextBox";
 
 import styles from "./styles";
+import DIText from "../../../components/DIText";
 
 export default function Login(props) {
     const {navigation} = props;
+
+    //0 - DECLARE PROVIDERS VARIABLES
+    const {colors} = useTheme();
+    const {handleLogin} = useAuth();
 
     //1 - DECLARE VARIABLES
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
-    const {handleLogin} = useAuth();
-
-    const [login, {loading:isLoggingIn}] = useMutation(LOGIN, {
-        onCompleted, onError
-    });
-
     //===================================================================================================
     //3 - GRAPHQL HANDLERS
+    const [login, {loading:isLoggingIn}] = useMutation(LOGIN, {onCompleted, onError});
     async function onCompleted(data) {
         await handleLogin(data.login);
     }
@@ -51,44 +51,50 @@ export default function Login(props) {
             setError(error.message)
         }
     }
+    //
+    const fields = [
+        {
+            label: "Email",
+            placeholder: "Email Address",
+            value: email,
+            autoCapitalize: 'none',
+            onChangeText: setEmail
+        },
+        {
+            label: "Password",
+            placeholder: "Password",
+            value: password,
+            onChangeText: setPassword,
+            secureTextEntry: true
+        }
+    ]
 
     // ==========================================================================================
     //4 RENDER VIEW
     return (
-        <AuthContainer containerStyle={[styles.container]}>
+        <AuthContainer containerStyle={[styles.container, {backgroundColor: colors.background}]}>
             <ScrollView style={[styles.wrapper]}>
                 <View style={styles.headerContainer}>
-                    <Text style={styles.headerText}>Welcome!</Text>
-                    <Text style={styles.subHeader}>Please sign into your account</Text>
+                    <DIText bold style={styles.headerText}>Welcome!</DIText>
+                    <DIText medium style={styles.subHeader}>Please sign into your account</DIText>
                 </View>
-                <View style={styles.inputsContainer}>
-                    <TextBox onChangeText={(text) => setEmail(text)}
-                             label={"Email"}
-                             placeholder={"Email Address"}
-                             value={email}
-                             containerStyle={{marginBottom: 20}}/>
-                    <TextBox onChangeText={(text) => setPassword(text)}
-                             label={"Password"}
-                             placeholder={"Password"}
-                             secureTextEntry={true}
-                             value={password}/>
-
-                    {error && <Text style={[styles.error]}>{error}</Text>}
-
-                    <Button title={"Login"}
-                            onPress={onSubmit}
-                            loading={isLoggingIn}
-                            disabled={disabled}
-                            containerStyle={[{marginTop: 20}]}
-                            buttonStyle={[styles.button]}
-                            disabledStyle={[styles.button]}
-                            titleStyle={styles.buttonText}/>
-                </View>
-
+                <AuthForm
+                    error={error}
+                    fields={fields}
+                    buttonTitle={"Login"}
+                    loading={isLoggingIn}
+                    disabled={disabled}
+                    onSubmit={onSubmit}
+                    labelStyle={{fontFamily:'Poppins-Regular'}}
+                    buttonStyle={{backgroundColor: colors.card}}
+                    containerStyle={{marginTop: 20}}/>
                 <View style={{marginTop: 20}}>
-                    <Text style={[styles.labelText, {}]} onPress={() => navigation.navigate("Register")}>
-                        Don't have an account? <Text style={styles.ctaLink}>Register</Text>
-                    </Text>
+                    <DIText style={[styles.labelText, {}]} onPress={() => navigation.replace("Register")}>
+                        Don't have an account?
+                        <DIText style={[styles.ctaLink, {color: colors.card}]}>
+                            {` Register`}
+                        </DIText>
+                    </DIText>
                 </View>
             </ScrollView>
         </AuthContainer>

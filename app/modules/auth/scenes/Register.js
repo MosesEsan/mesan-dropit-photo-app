@@ -2,18 +2,23 @@ import React, {useState, useMemo} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 import {useMutation} from "@apollo/client";
-import {Button} from "@rneui/themed";
 
 import {useAuth} from "../AuthProvider";
 import {REGISTER} from "../AuthService";
 
 import AuthContainer from "../components/AuthContainer";
-import TextBox from "../components/AuthTextBox";
+import {AuthForm} from "../components/AuthTextBox";
 
 import styles from "./styles";
+import {useTheme} from "@react-navigation/native";
+import DIText from "../../../components/DIText";
 
 export default function Register(props) {
     const {navigation} = props;
+
+    //0 - DECLARE PROVIDERS VARIABLES
+    const {colors} = useTheme();
+    const {handleLogin} = useAuth();
 
     //1 - DECLARE VARIABLES
     const [name, setName] = useState("");
@@ -21,14 +26,9 @@ export default function Register(props) {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
-    const {handleLogin} = useAuth();
-
-    const [signup, {loading:isRegistering}] = useMutation(REGISTER, {
-        onCompleted, onError
-    });
-
     //==================================================================================================
     //3 - GRAPHQL HANDLERS
+    const [signup, {loading:isRegistering}] = useMutation(REGISTER, {onCompleted, onError});
     async function onCompleted(data) {
         await handleLogin(data.signup);
     }
@@ -38,15 +38,10 @@ export default function Register(props) {
     }
 
     //==================================================================================================
-
+    //4 - Action HANDLERS
     const disabled = useMemo(() => {
         return !(email.length > 0 && password.length > 0)
     }, [email, password]);
-
-
-    const onPress = async () => {
-        await onSubmit()
-    }
 
     async function onSubmit() {
         try {
@@ -57,52 +52,64 @@ export default function Register(props) {
         }
     }
 
+    const fields = [
+        {
+            label: "Name",
+            placeholder: "Enter your name",
+            value: name,
+            onChangeText: setName
+        },
+        {
+            label: "Email",
+            placeholder: "Email Address",
+            value: email,
+            autoCapitalize: 'none',
+            onChangeText: setEmail
+        },
+        {
+            label: "Password",
+            placeholder: "Password",
+            value: password,
+            onChangeText: setPassword,
+            secureTextEntry: true
+        }
+    ]
     //==================================================================================================
-
     return (
-        <AuthContainer containerStyle={[styles.container]}>
+        <AuthContainer containerStyle={[styles.container, {backgroundColor: colors.background}]}>
             <ScrollView style={[styles.wrapper]}>
                 <View style={styles.headerContainer}>
-                    <Text style={styles.headerText}>Create new account</Text>
-                    <Text style={styles.subHeader}>Please fill in the form to continue</Text>
+                    <DIText bold style={styles.headerText}>Create new account</DIText>
+                    <DIText medium style={styles.subHeader}>Please fill in the form to continue</DIText>
                 </View>
-                <View style={styles.inputsContainer}>
-                    <TextBox onChangeText={(text) => setName(text)}
-                             label={"Name"}
-                             placeholder={"Name"}
-                             value={name}
-                             containerStyle={{marginBottom: 20}}/>
-                    <TextBox onChangeText={(text) => setEmail(text)}
-                             label={"Email"}
-                             placeholder={"Email Address"}
-                             value={email}
-                             containerStyle={{marginBottom: 20}}/>
-                    <TextBox onChangeText={(text) => setPassword(text)}
-                             label={"Password"}
-                             placeholder={"Password"}
-                             secureTextEntry={true}
-                             value={password}/>
-
-                    {error && <Text style={[{color: "red", marginVertical: 12}]}>{error}</Text>}
-
-                    <Button title={"REGISTER"}
-                            onPress={onPress}
-                            loading={isRegistering}
-                            disabled={disabled}
-                            containerStyle={[{marginTop: 20}]}
-                            buttonStyle={[styles.button]}
-                            disabledStyle={[styles.button]}
-                            titleStyle={styles.buttonText}/>
-                </View>
-
+                <AuthForm
+                    error={error}
+                    fields={fields}
+                    buttonTitle={"REGISTER"}
+                    onPress={onSubmit}
+                    loading={isRegistering}
+                    disabled={disabled}
+                    labelStyle={{fontFamily:'Poppins-Regular'}}
+                    buttonStyle={{backgroundColor: colors.card}}
+                    containerStyle={{marginTop: 20}}/>
                 <View style={{marginTop: 20}}>
-                    <Text style={[styles.labelText, {}]} onPress={() => navigation.navigate("Login")}>
-                        Already have an account? <Text style={styles.ctaLink}>Login</Text>
-                    </Text>
-                    <Text style={[styles.labelText, {marginTop: 40}]}>
-                        By continuing, you agree to the <Text style={{fontWeight: "500"}}>
-                        Terms of Services</Text> & <Text style={{fontWeight: "500"}}>Privacy Policy</Text>.
-                    </Text>
+                    <DIText style={[styles.labelText, {}]}>
+                        Already have an account?
+                        <DIText style={[styles.ctaLink, {color: colors.card}]}  onPress={() => navigation.replace("Login")}>
+                            {` Login`}
+                        </DIText>
+                    </DIText>
+                    <DIText style={[styles.labelText, {marginTop: 40}]}>
+                        {`By continuing, you agree to the `}
+                        <DIText medium
+                                onPress={() => navigation.navigate('TermsAndCondition')}>
+                            {`Terms of Services `}
+                        </DIText> &
+                        <DIText medium
+                                onPress={() => navigation.navigate('PrivacyPolicy')}>
+                            {` Privacy Policy.`}
+                        </DIText>
+                    </DIText>
                 </View>
             </ScrollView>
         </AuthContainer>

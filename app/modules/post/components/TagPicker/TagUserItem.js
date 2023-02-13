@@ -1,13 +1,12 @@
 import React, {useState} from "react";
 import {Image} from "react-native";
 import {CheckBox, Icon, ListItem} from "@rneui/themed";
-
-import {useTheme} from "../../../ThemeProvider";
+import {useTheme} from "@react-navigation/native";
 
 export default function TagUserItem({item, index, onSelectUser, checked}) {
     const [check, setCheck] = useState(false);
 
-    const {textColor, secondaryColor} = useTheme();
+    const {textColor, secondaryColor, colors} = useTheme();
 
     const onPress = () => {
         onSelectUser(!check, item)
@@ -16,7 +15,7 @@ export default function TagUserItem({item, index, onSelectUser, checked}) {
 
     return (
         <ListItem key={`icon_user_${index}`}
-                  containerStyle={{paddingRight: 0, marginHorizontal: 8, marginTop: 8, borderRadius: 12, backgroundColor:secondaryColor}}>
+                  containerStyle={{paddingRight: 0, marginHorizontal: 8, marginTop: 8, borderRadius: 12, backgroundColor:colors.secondary}}>
             <Image source={{uri: item.image}} style={{height: 40, width: 40, borderRadius: 50, backgroundColor: "#eee"}}/>
             <ListItem.Content>
                 <ListItem.Title
@@ -32,9 +31,8 @@ export default function TagUserItem({item, index, onSelectUser, checked}) {
                     <Icon
                         name="radio-button-checked"
                         type="material"
-                        color={textColor}
+                        color={colors.card}
                         size={25}
-                        iconStyle={{ marginRight: 10 }}
                     />
                 }
                 checked={checked}

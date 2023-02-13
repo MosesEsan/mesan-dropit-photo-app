@@ -1,12 +1,13 @@
 import React from "react";
-import {Image, StyleSheet, Text, View} from "react-native";
+import {Image, StyleSheet, View} from "react-native";
 
 import {Icon} from "@rneui/themed";
+import DIText from "../../../../components/DIText";
 
 export default function TagPicker({users, onAdd}) {
     return (
-        <View style={{padding: 14}}>
-            <Text>Shared with:</Text>
+        <View style={{paddingTop: 14}}>
+            <DIText style={{color:"#fff"}}>Shared with:</DIText>
             <View style={styles.wrapper}>
                 <Icon
                     name='plus'

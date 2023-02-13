@@ -1,6 +1,6 @@
 import {StyleSheet} from "react-native";
 
-const styles = StyleSheet.create({
+const styless = StyleSheet.create({
     imageContainer: {
         flex: 1,
         justifyContent: "center"
@@ -34,33 +34,46 @@ const styles = StyleSheet.create({
 });
 
 
-const bigStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     card: {
-        padding: 8,
+        marginBottom: 12,
     },
 
     imageContainer: {
         overflow: "hidden",
         flex: 1,
+        borderRadius: 20,
+        marginBottom: 20
     },
 
     cardImage: {
         flex: 1,
         backgroundColor: "#eee"
+    },
+
+    absolute: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0
+    },
+
+    container: {
+        paddingHorizontal: 8,
+        borderRadius: 8,
     }
 });
 
-
 const minStyles = StyleSheet.create({
     card: {
-        flex: 1 / 2,
+        borderWidth:2, borderColor:"pink",
         paddingVertical: 6,
         position: 'relative',
         width: '100%', paddingRight: 6, paddingLeft: 6
-
     },
-
-    imageContainer: {},
 
     cardImage: {
         height: "100%",
@@ -70,4 +83,4 @@ const minStyles = StyleSheet.create({
 
 
 export default styles;
-export {bigStyles, minStyles}
+export { minStyles}

@@ -6,11 +6,10 @@ import {Button} from "@rneui/themed";
 import FastImage from "react-native-fast-image";
 
 import {OutOfRangeView} from "./Card/Card";
-import {myFromNow} from "../helper";
+import {convertDate} from "../../../AppUtil";
 
 export default function DirectionCard({item, routes, routeSelected, setRouteSelected}) {
-    let milliseconds = moment(parseInt(item.createdAt)).valueOf();
-    const date = myFromNow(moment(milliseconds), moment())
+    const date = convertDate(item.createdAt)
 
     const {textColor, textColorLight} = useTheme()
     return (

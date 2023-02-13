@@ -19,8 +19,7 @@ const CARD_HEIGHT = 220;
 const CARD_WIDTH = width * 0.4;
 import card_styles from "./styles"
 import {Icon} from "@rneui/themed";
-import {getGeoMeta, myFromNow} from "../../helper";
-import moment from "moment";
+import {convertDate} from "../../../../AppUtil";
 
 const LocationIcon = ({onPress}) => (
     <TouchableOpacity onPress={onPress} style={{
@@ -63,8 +62,7 @@ export default function ScrollCard(props) {
     //==================================================================================================
     //2 - MAIN CODE BEGINS HERE
     useEffect(() => {
-        let milliseconds = moment(parseInt(item.createdAt)).valueOf();
-        setDate(myFromNow(moment(milliseconds), moment()))
+        setDate(convertDate(item.createdAt))
     }, [item]);
 
     return (

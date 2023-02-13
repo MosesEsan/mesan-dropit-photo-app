@@ -1,5 +1,9 @@
-import React, {useEffect, useState} from "react";
-import {Image, StyleSheet, Text, View} from "react-native";
+import React, {useEffect, useRef, useState} from "react";
+import {
+    StyleSheet,
+    Text,
+    View,
+} from "react-native";
 
 import {RNCamera} from "react-native-camera";
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
@@ -132,43 +136,10 @@ function StatusView({title, message, onCancel}) {
     )
 }
 
-export function Preview({path, onClose}) {
-    if (path) {
-        return (
-            <View style={{flex: 1}}>
-                <View style={styles.previewWrapper}>
-                    <View style={styles.toolBar}>
-                        <NavButton
-                            size={34}
-                            name={'ios-close'}
-                            type={'ionicon'}
-                            color={'#FFF'}
-                            onPress={onClose}
-                            style={{height: 54}}/>
-                    </View>
-                    <Image source={{uri: path}} style={styles.image}/>
-                </View>
-            </View>
-        )
-    }
-
-    return null;
-}
-
 const styles = StyleSheet.create({
     wrapper: {
         borderRadius: 16,
         flex: 1, overflow: "hidden"
-    },
-
-    previewWrapper: {
-        borderRadius: 16,
-        flex: 1,
-        overflow: "hidden",
-    },
-
-    image:{
-        flex:1
     },
 
     toolBar: {
@@ -177,6 +148,8 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         zIndex: 1,
-        alignItems: "flex-end",
-    }
+        alignItems: "flex-start",
+    },
+
+
 });

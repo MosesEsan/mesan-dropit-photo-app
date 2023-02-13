@@ -1,185 +1,145 @@
-import React, {useState} from "react";
-import {View} from "react-native";
+import React from "react";
+import {View, StyleSheet} from "react-native";
+import {Icon} from "@rneui/themed";
 
-import moment from "moment";
-import FastImage from "react-native-fast-image";
+import {CommentButton, CommentView, LikeButton, TaggedUsersButton} from "./ActionButtons";
+import DIText from "../../../../components/DIText";
+import useDrop from "../../hook/useDrop";
+import {useNavigation} from "@react-navigation/native";
 
-import {Icon, Text} from "@rneui/themed";
+const ScrollItem = ({icon, text, containerStyle}) => {
+    return (
+        <View style={[{
+            flexDirection: "row",
+            backgroundColor: "rgba(0,0,0,0.4)",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: 20, padding: 6, paddingHorizontal: 12,
+            marginTop: 4,
+        }, containerStyle]}>
+            <Icon
+                {...icon}
+                containerStyle={{
+                    flex: null,
+                    alignItems: "flex-start",
+                    justifyContent: "center",
+                    marginRight: 8
+                }}
+                iconStyle={{paddingHorizontal: 0}}/>
+            <DIText style={{color: "#fff", marginLeft: 4}}>
+                {text}
+            </DIText>
+        </View>
+    )
+}
 
-import {myFromNow} from "../../helper";
-import LikeButton, {CommentButton, DirectionButton, ReportButton} from "./ActionButtons";
+export default function MetaData(props) {
+    const navigation = useNavigation();
+    const {item, user, showCommentView} = props;
+    //0 - DECLARE PROVIDERS VARIABLES
+    const [likes, isLiked, onDropLike, comments, inRange, taggedUsers] = useDrop(item, user.id)
 
-export default function MetaData({item, comments, likes, isLiked, onLike, onComment, onReport, onDirection, preview}) {
-    //1 - DECLARE VARIABLES
-    let milliseconds = moment(parseInt(item.createdAt)).valueOf();
-    const date = myFromNow(moment(milliseconds), moment());
+    let isCurrentUser = item?.user?.id === user.id;
+    //==================================================================================================
+    return (
+        <View style={[styles.container]}>
+            <View style={[{flex: 1}]}>
+            <View style={[ {flexDirection: "row", flex: 1}]}>
+                <View style={[{flex: 1, justifyContent: "flex-end"}]}>
+                    <View>
+                        {
+                            inRange &&
+                        <DIText
+                            style={{color: "#fff", fontWeight: "400", lineHeight: 19, fontSize: 15, marginBottom: 8}}>
+                            {item.caption}
+                        </DIText>
+                        }
+                        <View style={{flex: 1, flexDirection: "row", alignItems: "flex-end", flexWrap: 'wrap'}}>
+                            {/*{*/}
+                            {/*    isCurrentUser &&*/}
+                            {/*    <ScrollItem containerStyle={{marginRight: 8}} icon={{*/}
+                            {/*        size: 20,*/}
+                            {/*        color: '#FF2121',*/}
+                            {/*        name: "heart",*/}
+                            {/*        type: 'antdesign'*/}
+                            {/*    }} text={likes.length}/>*/}
+                            {/*}*/}
+                            {/*{*/}
+                            {/*    isCurrentUser &&*/}
+                            {/*    <ScrollItem containerStyle={{marginRight: 8}} icon={{*/}
+                            {/*        size: 20,*/}
+                            {/*        color: '#ffffff',*/}
+                            {/*        name: "comment-text",*/}
+                            {/*        type: 'antdesign',*/}
+                            {/*        type:'material-community'*/}
+                            {/*    }} text={comments.length}/>*/}
+                            {/*}*/}
+
+                            <ScrollItem icon={{
+                                size: 20,
+                                color: '#fff',
+                                name: "globe",
+                                type: 'font-awesome'
+                            }} text={`${item.city}, ${item.country}`}/>
+                        </View>
+                    </View>
+                </View>
+                <ActionsView {...props}/>
+            </View>
+                {/*{*/}
+                {/*    showCommentView &&*/}
+                {/*    <CommentView onPress={() => navigation.navigate("Comments", {item})}/>*/}
+                {/*}*/}
+            </View>
+
+        </View>
+    )
+}
+
+
+const ActionsView = (props) => {
+    const navigation = useNavigation();
+    const {item, user} = props;
+    const [likes, isLiked, onDropLike, comments, inRange, taggedUsers] = useDrop(item, user.id)
 
     return (
-        <View style={[preview ? { flexDirection:"row", } : {flex:1, justifyContent: "flex-end", alignItems:"flex-end"}]}>
+        <View style={[{justifyContent: "flex-end", alignItems: "flex-end", width: 70}]}>
             {
-            preview &&
-            <View style={{flex: 1}}>
-                <View style={{
-                    paddingVertical: 10,
-                    flex: 1,
-                    flexDirection: "row",
-                    paddingHorizontal: 12,
-                    alignItems: "center"
-                }}>
-                    <FastImage source={{uri: item.user.image}}
-                               style={{height: 30, width: 30, borderRadius: 50, backgroundColor: "#eee"}}/>
-                    <Text style={{marginLeft: 8, color: "#fff", fontWeight: "bold"}}>
-                        {item.user.name}
-                    </Text>
-                    <Text style={{marginLeft: 8, color: "#ccc"}}>
-                        {date}
-                    </Text>
-                </View>
-                <View
-                    style={{
-                        flex: 1,
-                        flexDirection: "row",
-                        paddingHorizontal: 12,
-                        alignItems: "center",
-                        marginVertical: 0
-                    }}>
-                    <Text style={{color: "#fff", fontWeight: "400"}}>
-                        {item.caption}
-                    </Text>
-                </View>
-                <View
-                    style={{
-                        flex: 1,
-                        flexDirection: "row",
-                        paddingHorizontal: 12,
-                        alignItems: "center",
-                        marginVertical: 12
-                    }}>
-                    <View style={{
-                        flex: 1,
-                        flexDirection: "row", alignItems: "flex-end"
-                    }}>
-                        <Icon
-                            size={20}
-                            name={'heart'}
-                            type={'material-community'}
-                            color={'#fff'}
-                            containerStyle={{
-                                flex: null,
-                                alignItems: "flex-start",
-                                justifyContent: "center",
-                                marginRight: 8
-                            }}
-                            iconStyle={{paddingHorizontal: 0}}/>
-                        <Text style={{color: "#fff"}}>{likes.length} Likes</Text>
-                    </View>
-                    <View style={{
-                        flex: 1,
-                        flexDirection: "row", paddingHorizontal: 12, alignItems: "center"
-                    }}>
-                        <Icon
-                            size={20}
-                            name={'comment-text'}
-                            type={'material-community'}
-                            color={'#fff'}
-                            containerStyle={{
-                                flex: null,
-                                alignItems: "flex-start",
-                                justifyContent: "center",
-                                marginRight: 8
-                            }}
-                            iconStyle={{paddingHorizontal: 0}}/>
-                        <Text style={{color: "#fff"}}>{comments} Comments</Text>
-                    </View>
-                </View>
-            </View>
-        }
-
-            <View style={[{justifyContent: "flex-end", alignItems:"flex-end"}]}>
-                {
-                    preview && item['in_range'] !== false &&
-                    <ReportButton onPress={onReport}
-                                   iconStyle={{paddingTop: 15, paddingBottom: 15, paddingRight: 15}}
-                                   containerStyle={{ height:70}}/>
-                }
-                {
-                    preview && item['in_range'] !== false &&
-                    <CommentButton onPress={onComment}
-                                   iconStyle={{paddingTop: 15, paddingBottom: 15, paddingRight: 15}}
-                                   containerStyle={{ height:70}}/>
-                }
-                {
-                    onDirection && preview && item['in_range'] === false &&
-                    <DirectionButton onPress={onDirection}
-                                small={false}
-                                iconStyle={{paddingTop: 15, paddingBottom: 15, paddingRight: 15}}
-                                containerStyle={{ height:70}}/>
-                }
-                {
-                    onLike && item['in_range'] !== false &&
-                    <LikeButton isLiked={isLiked}
-                                onLike={onLike}
-                                small={true}
-                                likes={item.likes}
-                                iconStyle={{paddingTop: 15, paddingBottom: 15, paddingRight: 15}}
-                                containerStyle={{ height:70}}/>
-                }
-            </View>
+                taggedUsers.length > 0 &&
+                <TaggedUsersButton onPress={() => alert("Show Tagged Users")}
+                                   taggedUsers={taggedUsers || []}/>
+            }
+            {
+                inRange &&
+                <CommentButton onPress={() => navigation.navigate("Comments", {item})}
+                                  comments={comments}
+                                  small={true}/>
+            }
+            {
+                inRange &&
+                <LikeButton isLiked={isLiked}
+                            onLike={() => onDropLike(props.onUpdate)}
+                            small={true}
+                            likes={likes}/>
+            }
         </View>
     )
 }
 
 MetaData.defaultProps = {
-    onLike: null
+    containerStyle: {},
+    taggedUsers: [],
+    onUpdate: null,
+    showCommentView: false
 }
 
-
-export const MetaDataMini = ({item, date, onPress, navigation, inProfile, containerStyle}) => {
-    let onCityPress = () => navigation.navigate('Post', {screen: 'MapView', params: {item}})
-
-    return(
-        <View style={[{marginTop: 8}, containerStyle]}>
-            <View>
-                {
-                    !inProfile ?
-                        <Text  style={{color:"white"}}>
-                            <Text style={{fontWeight:"500", color:"rgb(242,116,5)"}} onPress={onPress}>
-                                {item.user.name}
-                            </Text>
-                            <Text style={{color:"white"}}>{` dropped`} {item.city ? ` in ` :  ``}</Text>
-                            <Text style={{color:"white", fontWeight:"500", flex:1}} onPress={onCityPress}>
-                                {item.city ? ` ${item.city} ` : ` `}
-                            </Text>
-                            <Text style={{color:"#ccc"}}>
-                                {date}
-                            </Text>
-                        </Text>
-                        :
-                        <View style={{flexDirection:"row"}}>
-                            <Icon
-                                name='location-outline'
-                                type='ionicon'
-                                size={15}
-                                color='#fff'
-                                containerStyle={{
-                                    height: 16, width:16,
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                }}
-                            />
-                            <Text style={{color:"white", fontWeight:"500", flex:1}} onPress={onCityPress}>
-                                {item.city ? ` ${item.city} ` : ` `}
-                            </Text>
-                            <Text style={{color:"#ccc"}}>
-                                {date}
-                            </Text>
-                        </View>
-                }
-            </View>
-        </View>
-    )
-}
-
-MetaData.defaultProps = {
-    containerStyle: {}
-}
+const styles = StyleSheet.create({
+    container: {
+        paddingLeft: 20,
+        paddingHorizontal: 16, paddingBottom: 25,
+        // flexDirection: "row",
+        flex: 1,
+        // justifyContent: "flex-end",
+        // alignItems: "flex-end"
+    }
+});

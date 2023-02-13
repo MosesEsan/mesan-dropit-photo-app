@@ -1,13 +1,20 @@
 import React, {useEffect, useRef, useState, useLayoutEffect} from 'react';
-import {Image, ScrollView, StyleSheet, TextInput, useWindowDimensions, View} from "react-native";
+import {
+    Image,
+    ImageBackground,
+    Pressable,
+    ScrollView,
+    StyleSheet,
+    TextInput,
+    useWindowDimensions,
+    View
+} from "react-native";
 
-import {Button, ListItem, Switch} from "@rneui/themed";
+import {Button, ListItem, Switch, Header, Icon} from '@rneui/themed';
 
 import {usePost} from "../../PostProvider";
 import {useQueue} from "me-helper-views/QueueProvider";
-import {useTheme} from "../../../ThemeProvider";
 
-import {MiniMapWithRadius} from "../../components/MiniMap";
 
 import styles from "../styles";
 import TagPicker from "../../components/TagPicker/TagPicker";
@@ -16,8 +23,45 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import TagUser from "./TagUser";
 import {useMutation} from "@apollo/client";
 import {UPDATE_DROP} from "../../PostService";
+import {useTheme} from "@react-navigation/native";
+import DIText from "../../../../components/DIText";
+import {BlurView} from "@react-native-community/blur";
+import {DINavButton} from "../../../../components/DIHeader";
+import {DIFont} from "../../../../AppConfig";
 
 const MAX_LENGTH = 250;
+
+
+export const ScrollSelector = ({options, onPress, current, label, valLabel}) => {
+    return (
+        <View style={[{marginTop: 20, marginRight: 0}]}>
+            <DIText semibold style={{color: "#fff", marginLeft: 20}}>
+                {label}
+            </DIText>
+            <ScrollView style={[{flexDirection: "row", marginTop: 8}]} horizontal={true}
+                        showsHorizontalScrollIndicator={false}>
+                {
+                    options.map((val, idx) => (
+                        <Pressable onPress={() => onPress(val)}>
+                            <View style={{
+                                paddingHorizontal: 20,
+                                borderRadius: 20, padding: 8,
+                                paddingVertical: 12,
+                                marginLeft: 20,
+                                justifyContent: "center", alignItems: "center",
+                                backgroundColor: (val === current) ? "rgba(255,255,255,1)" : "rgba(255,255,255,.3)"
+                            }}>
+                                <DIText medium
+                                        style={{color: (val === current) ? "#000" : "#fff"}}>{val}{valLabel}</DIText>
+                            </View>
+                        </Pressable>
+                    ))
+                }
+            </ScrollView>
+        </View>
+    )
+
+}
 
 export default function AddCaptionPrivacy(props) {
     const {navigation, route} = props;
@@ -29,7 +73,6 @@ export default function AddCaptionPrivacy(props) {
 
     //0 - DECLARE PROVIDERS VARIABLES
     const {updateData} = usePost();
-    const {backgroundColor, textColor} = useTheme();
     const {addToQueue} = useQueue();
 
     //1 - DECLARE VARIABLES
@@ -46,34 +89,28 @@ export default function AddCaptionPrivacy(props) {
 
     const {height: windowHeight, width: windowWidth} = useWindowDimensions();
 
-    const [updateDrop, {loading, error}] = useMutation(UPDATE_DROP, {onCompleted, onError});
-
-    //==================================================================================================
-    //1B -NAVIGATION CONFIG
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerTitle: editMode ? "Edit Drop" : "Add Drop"
-        });
-    }, [navigation]);
-
-
     //==================================================================================================
     //2 - MAIN CODE BEGINS HERE
     useEffect(() => {
         Image.getSize(photo, (width, height) => {
-            const ratio = 80 / width;
-            setWidth(80)
+            const ratio = 170 / width;
+            setWidth(170)
             setHeight(height * ratio)
         });
     }, []);
 
     //==================================================================================================
     //3 - GRAPHQL HANDLERS
+    const [updateDrop, {loading, error}] = useMutation(UPDATE_DROP, {fetchPolicy: 'no-cache', onCompleted, onError});
+
     async function onCompleted(data) {
         if (data.updateDrop) {
+            const updatedDrop = data.updateDrop;
+            const {caption, private: isPrivate, radius} = updatedDrop;
+
+            const retData = {caption, private: isPrivate, radius};
             setIsEditing(false)
-            //TODO:  Test This, why is the dat not being passed
-            updateData(data.updateDrop.id)
+            updateData(data.updateDrop.id, retData)
             navigation.pop()
         }
     }
@@ -114,67 +151,101 @@ export default function AddCaptionPrivacy(props) {
         refRBTagsSheet.current.close();
     }
 
+
+    //==================================================================================================
+    //4 - UI ACTION HANDLERS
     const renterTextArea = () => {
         return (
-            <View style={newStyles.topContainer}>
-                <Image source={{uri: photo}} style={{height, width}}/>
+            <View style={[]}>
+                <View style={{alignItems: "center", paddingTop: 12}}>
+                    <Image source={{uri: photo}} style={{
+                        height, width, borderRadius: 12,
+                    }}/>
+                </View>
                 <TextInput
                     multiline={true}
+                    placeholderTextColor={"#fff"}
                     onChangeText={(text) => setCaption(text)}
                     placeholder={"Say something about this drop..."}
-                    style={[styles.text, {flex: 1}]}
+                    style={[styles.text]}
                     maxLength={MAX_LENGTH}
                     value={caption}/>
             </View>
         )
     }
 
+
     // ==========================================================================================
     //5-  RENDER VIEW
     const refRBTagsSheet = useRef();
     return (
-        <View style={{flex: 1, backgroundColor}}>
-            <KeyboardAvoidingContainer containerStyle={{backgroundColor}}>
-                <ScrollView style={{backgroundColor}} contentContainerStyle={{paddingBottom: 80, flexGrow: 1}}>
+
+        <ImageBackground style={{flex: 1,}} source={{uri: photo}}>
+            <BlurView
+                style={styles.absolute}
+                blurType="light"
+                blurAmount={100}
+                reducedTransparencyFallbackColor="white"
+            />
+
+            {/*<Overlay/>*/}
+            <View style={{flexDirection: "row", width: "100%", paddingVertical:12 }}>
+                <View style={{flex: 1, alignItems: "flex-start", paddingLeft:12}}>
+                    <DINavButton button={{
+                        ...{
+                            type: "ionicon",
+                            name: "ios-close",
+                            size: 34,
+                            color: "#FFF",
+                            onPress: () => navigation.goBack(),
+                            containerStyle: {}
+                        }
+                    }}/>
+                </View>
+
+                <View style={{flex: 1, alignItems: "flex-end", paddingRight:12}}>
+                    <Button title={editMode ? "Update" : "Publish"}
+                            onPress={onFinish}
+                            containerStyle={[{}]}
+                            loading={isEditing}
+                            disabled={true}
+                            buttonStyle={[newStyles.button,]}
+                            disabledStyle={[newStyles.button]}
+                            titleStyle={newStyles.buttonText}/>
+                </View>
+            </View>
+
+            <KeyboardAvoidingContainer>
+                <ScrollView contentContainerStyle={{paddingBottom: 80, flexGrow: 1}}>
                     {renterTextArea()}
-                    <View style={newStyles.section}>
-                        <MiniMapWithRadius item={drop} navigation={navigation}
-                                           radius={radius}
-                                           style={{flex: 1}}
-                                           trackStyle={{backgroundColor: textColor}}
-                                           thumbStyle={{height: 20, width: 20, backgroundColor: "#000"}}
-                                           value={radius}
-                                           containerStyle={[styles.sliderContainer, {padding: 14}]}
-                                           onValueChange={(value) => setRadius(value)}/>
-                    </View>
-                    <View style={[newStyles.section]}>
-                        <ListItem bottomDivider>
+
+
+
+                    <ScrollSelector
+                        options={[1, 2, 3, 4, 5]}
+                        label={"Discovery Radius:"}
+                        valLabel={"km"}
+                        current={radius} onPress={setRadius}/>
+                    <View style={[styles.section]}>
+                        <ListItem bottomDivider containerStyle={{backgroundColor: "transparent", paddingHorizontal: 0}}>
                             <ListItem.Content>
-                                <ListItem.Title>Private</ListItem.Title>
-                                <ListItem.Subtitle>
+                                <DIText style={{color: "#fff"}}>Private</DIText>
+                                <DIText style={{color: "#fff"}}>
                                     {"Tag your friends and followers."}
-                                </ListItem.Subtitle>
+                                </DIText>
                             </ListItem.Content>
-                            <Switch value={isPrivate} onValueChange={setIsPrivate}/>
+                            <Switch value={isPrivate} onValueChange={setIsPrivate}
+                                    trackColor={"blue"}/>
                         </ListItem>
-                        {isPrivate && <TagPicker users={taggedUsers}
-                            // onAdd={() => navigation.navigate('TagUsers')}
-                                                 onAdd={() => refRBTagsSheet.current.open()}
+                        {isPrivate && <TagPicker users={taggedUsers} onAdd={() => refRBTagsSheet.current.open()}
                         />}
                     </View>
                 </ScrollView>
             </KeyboardAvoidingContainer>
-            <Button title={editMode ? "Done" : "Finish"}
-                    onPress={onFinish}
-                    containerStyle={[{margin: 12, marginBottom: 32}]}
-                    loading={isEditing}
-                    buttonStyle={[newStyles.button]}
-                    disabledStyle={[newStyles.button]}
-                    titleStyle={newStyles.buttonText}/>
             <RBSheet ref={refRBTagsSheet} closeOnPressMask={false} height={windowHeight / 2}>
                 <TagUser onDone={onDone}/>
             </RBSheet>
-        </View>
+        </ImageBackground>
     );
 };
 
@@ -182,30 +253,21 @@ AddCaptionPrivacy.defaultProps = {
     editMode: false
 }
 
-
 const newStyles = StyleSheet.create({
-
-    section: {marginTop: 12, marginHorizontal: 8, backgroundColor: "#fff", borderRadius: 12, overflow:"hidden"},
     button: {
-        height: 60,
+        width: 80,
+        height: 40,
         borderRadius: 10,
         justifyContent: "center",
         alignItems: 'center',
-        backgroundColor: "#C55110",
-        marginTop: 10
+        backgroundColor: "#ffffff",
+        // marginTop: 10
     },
 
     buttonText: {
-        fontWeight: "500",
-        fontSize: 17,
-        fontFamily: 'Helvetica Neue',
+        fontSize: 13,
+        fontFamily: DIFont.semibold,
         textAlign: "center",
-        color: "#fff",
-    },
-
-    topContainer: {
-        backgroundColor: "#fff",
-        flexDirection: "row",
-        padding: 12,
+        color: "#000000",
     }
 })

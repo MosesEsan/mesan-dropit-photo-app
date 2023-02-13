@@ -15,12 +15,12 @@ import moment from "moment";
 import {OutOfRangeView} from "../components/Card/Card";
 import CustomMarker from "../components/CustomMarker";
 
-import {myFromNow} from "../helper";
 import {useTheme} from "../../ThemeProvider";
 import DIHeader from "../../../components/DIHeader";
 import DIMapView from "../components/DIMapView";
 import {useLocation} from "../../../components/location/LocationProvider";
 import {Marker} from "react-native-maps";
+import {convertDate} from "../../../AppUtil";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyCkvKoGcVo1cvi-Gc5DYSHHgy8oBs3xQeU"
 
@@ -228,8 +228,7 @@ export default function DIDirections({navigation, route}) {
     }
     //==========================================================================================
     // 5 - RENDER VIEW
-    let milliseconds = moment(parseInt(item.createdAt)).valueOf();
-    const date = myFromNow(moment(milliseconds), moment())
+    const date = convertDate(item.createdAt)
     const mapRef = useRef();
 
     if (isLoading) return <ActivityIndicator style={[{flex: 1, alignItems: 'center', justifyContent: 'center'}]}/>

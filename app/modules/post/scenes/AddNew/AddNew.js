@@ -4,9 +4,9 @@ import Geolocation from "react-native-geolocation-service";
 
 import {useLocation} from "../../../../components/location/LocationProvider";
 
-import CameraView, {Preview} from "../../components/Camera/Camera";
-import {generateUUID} from "../../helper";
-import {Button} from "@rneui/themed";
+import CameraView from "../../components/Camera/Camera";
+import Preview from "../../components/Camera/Preview";
+import {generateUUID} from "../../../../AppUtil";
 
 export default function AddNew({navigation}) {
     const [picture, setPicture] = useState(null);
@@ -55,16 +55,6 @@ export default function AddNew({navigation}) {
                     <Preview path={picture} onClose={() => setPicture(null)}/>
                     : <CameraView setPicture={setPicture} onCancel={() => navigation.goBack()}/>
 
-            }
-            {picture !== null &&
-                // <View style={styles.bottomContainer}>
-                    <Button title={"Add Caption"}
-                            loading={false}
-                            onPress={submitPicture}
-                            containerStyle={styles.buttonContainer}
-                            buttonStyle={[styles.button]}
-                            titleStyle={styles.buttonText}/>
-                // </View>
             }
         </View>
     );

@@ -1,15 +1,16 @@
 import {StyleSheet} from "react-native";
 import {lightColors} from "@rneui/themed";
+import {DIFont} from "../../../AppConfig";
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        // backgroundColor: "#fff",
     },
 
     wrapper: {
         flex: 1,
-        backgroundColor: "#fff",
+        // backgroundColor: "#fff",
     },
 
     headerText: {
@@ -105,15 +106,17 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: 16,
+        fontSize: 14,
+        fontFamily: DIFont.semibold,
         lineHeight: 20,
-        fontFamily: 'Helvetica Neue',
-        color: "#000000",
+        color: "#FFF",
         padding: 16,
         paddingTop: 16,
-        backgroundColor: "#FFFFFF",
-        flex:1
-        // borderColor: "rgba(212,211,211, 0.3)"
+        flex:1,
+
+    // borderWidth:StyleSheet.hairlineWidth, borderColor:"#ccc",
+    borderRadius: 12, marginHorizontal: 20,
+    backgroundColor:"rgba(255,255,255,.3)", marginTop: 20,
     },
 
     image: {
@@ -159,9 +162,23 @@ const styles = StyleSheet.create({
     },
 
 
+        section: {
+            marginTop: 20,
+            marginHorizontal: 20,
+            overflow: "hidden"
+        },
+
+        absolute: {
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0
 
 
-
+}
 }
 );
 

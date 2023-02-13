@@ -1,26 +1,34 @@
-import React, {useEffect, useState, useMemo} from "react";
+import React, {useEffect, useState, useMemo, useLayoutEffect} from "react";
 import {Pressable, Text, View} from "react-native"
 
 import {useLazyQuery} from "@apollo/client";
 import {MEListView, EmptyView} from "me-helper-views";
 
-import {useTheme} from "../../../ThemeProvider";
 
 import {GET_FOLLOWERS} from "../../../users/UserService";
 
 import TagUserItem from "../../components/TagPicker/TagUserItem";
+import {useTheme} from "@react-navigation/native";
+import {getNavButtons} from "../../PostConfig";
+import {DINavButton, DINavButtons, DINavTitle} from "../../../../components/DIHeader";
+import NavUserImage from "../../../../components/NavUserImage";
 
 export default function TagUser({navigation, onDone}){
     //1 - DECLARE VARIABLES
     const [selectedUsers, setSelectedUsers] = useState([]);
     const [followers, setFollowers] = useState([]);
 
-    const {primaryColor} = useTheme();
+    const {colors} = useTheme();
 
     const [getFollowers, {loading: isFetching, error}] = useLazyQuery(GET_FOLLOWERS, {
         fetchPolicy: 'network-only', // Doesn't check cache before making a network request
         onCompleted, onError
     });
+    //==================================================================================================
+    //NAVIGATION CONFIG
+    useLayoutEffect(() => {
+        navigation.setOptions({headerTitle: "Select Users to Tag",});
+    }, [navigation]);
 
     //==========================================================================================
     // 2 - MAIN CODE BEGINS HERE
@@ -60,7 +68,8 @@ export default function TagUser({navigation, onDone}){
         return selectedUsers.map((user, idx) => (user.id));
     }, [selectedUsers]);
 
-    //4a - RENDER ITEM
+    //==================================================================================================
+    //4 - UI ACTION HANDLERS
     const renderItem = ({item, index}) => {
         return (
             <TagUserItem key={`icon_user_${index}`} item={item} index={index} onSelectUser={onSelectUser}
@@ -68,6 +77,7 @@ export default function TagUser({navigation, onDone}){
         )
     };
 
+    // onDone(selectedUsers)
     //4b - RENDER EMPTY
     const renderEmpty = () => {
         return <EmptyView title={"No Followers"} message={"You currently have no followers."}/>
@@ -76,17 +86,7 @@ export default function TagUser({navigation, onDone}){
     //==========================================================================================
     // 5 - RENDER VIEW
     return (
-        <View style={{flex:1, backgroundColor:primaryColor}}>
-            <View style={{borderColor:"purple",flexDirection:"row", alignItems:"center"}}>
-                <Text style={{fontSize: 17, fontWeight:"bold", color: "#fff", flex:1 , paddingHorizontal: 12}}>
-                    {`Select Users to Tag`}
-                </Text>
-                <Pressable onPress={() => onDone(selectedUsers)} style={[{width: 70, height: 44, padding: 8, paddingHorizontal: 12,  justifyContent:"center"}]}>
-                    <Text style={[{textAlign:"center", fontSize: 17, color:"white", fontWeight: "400"}]}>
-                        Done
-                    </Text>
-                </Pressable>
-            </View>
+        <View style={{flex:1, backgroundColor:colors.background}}>
             <MEListView
                 isFetching={isFetching}
                 error={error}
@@ -94,7 +94,7 @@ export default function TagUser({navigation, onDone}){
                 extraData={followers}
                 initialNumToRender={10}
 
-                style={{paddingHorizontal: 0, backgroundColor:primaryColor}}
+                style={{paddingHorizontal: 0, backgroundColor:colors.background}}
                 contentContainerStyle={{flexGrow: 1}}
 
                 renderItem={renderItem}

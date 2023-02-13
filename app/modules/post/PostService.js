@@ -138,6 +138,7 @@ export const DELETE_DROP = gql`
 export const LIKE_DROP = gql`
     mutation likeDrop($dropId: ID!, $value: Boolean!){
         like(dropId: $dropId, value: $value){
+            id,
             userId
         }
     }

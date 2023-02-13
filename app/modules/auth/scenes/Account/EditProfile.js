@@ -5,26 +5,24 @@ import {
 } from 'react-native';
 
 import {useMutation} from "@apollo/client";
-import {Button} from "@rneui/themed"
+import {useUploadToCloudinary} from "me-helper-views";
+import {useTheme} from "@react-navigation/native";
 
 import {useAuth} from "../../AuthProvider";
-import {useTheme} from "../../../ThemeProvider";
 import {UPDATE_USER} from "../../AuthService";
 
 import AuthContainer from "../../components/AuthContainer";
 import AuthUserImage from "../../components/AuthUserImage";
-import TextBox from "../../components/AuthTextBox";
-
-import {useUploadToCloudinary} from "me-helper-views";
+import AuthForm from "../../components/AuthForm";
 
 import styles from "../styles";
 
-import {API_KEY, SECRET, CLOUD_NAME} from "../../../../config"
+import {API_KEY, SECRET, CLOUD_NAME} from "../../../../AppConfig"
 
 export default function EditProfile({navigation}) {
     //0 - DECLARE PROVIDERS VARIABLES
     const {state: {currentUser}, updateCurrentUser} = useAuth();
-    const {backgroundColor} = useTheme()
+    const {colors} = useTheme()
 
     //1 - DECLARE VARIABLES
     const [isUploading, setIsUploading] = useState(false);
@@ -123,33 +121,41 @@ export default function EditProfile({navigation}) {
 
     }, [name, username, image]);
 
+    //
+    const fields = [
+        {
+            label: "Name",
+            placeholder: "Name",
+            value: name,
+            autoCapitalize: 'none',
+            onChangeText: setName
+        },
+        {
+            label: "Username",
+            placeholder: "Username (Optional)",
+            value: username,
+            onChangeText: setUsername
+        }
+    ]
 
     // ==========================================================================================
     //5 - RENDER VIEW
     return (
-        <AuthContainer containerStyle={[{flex: 1, backgroundColor}]}>
-            <View style={[styles.wrapper, {padding: 25}]}>
+        <AuthContainer containerStyle={[{flex: 1, backgroundColor:colors.background}]}>
+            <View style={[styles.wrapper]}>
                 <AuthUserImage onDone={setImage}
                                isUploading={isUploading}
                                enableUpload={true}/>
-                <TextBox onChangeText={(text) => setName(text)}
-                         label={"Name"}
-                         placeholder={"Name"}
-                         value={name}
-                         containerStyle={{marginBottom: 20}}/>
-                <TextBox onChangeText={(text) => setUsername(text)}
-                         label={"Username"}
-                         placeholder={"Username (Optional)"}
-                         value={username}/>
+                <AuthForm
+                    error={error}
+                    fields={fields}
+                    buttonTitle={"Save"}
+                    loading={isSubmitting}
+                    disabled={disabled}
+                    onSubmit={onSubmit}
+                    buttonStyle={{backgroundColor: colors.card}}
+                    containerStyle={{marginTop: 20}}/>
                 {renderStatus()}
-                <Button title={"Save"}
-                        onPress={onSubmit}
-                        loading={isSubmitting}
-                        disabled={disabled}
-                        containerStyle={[{marginTop: 20}]}
-                        buttonStyle={[styles.button]}
-                        disabledStyle={[styles.button]}
-                        titleStyle={styles.buttonText}/>
             </View>
         </AuthContainer>
     );

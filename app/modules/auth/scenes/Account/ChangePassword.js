@@ -2,18 +2,20 @@ import React, {useState, useMemo, useCallback} from 'react';
 import {Text, View} from 'react-native';
 
 import {useMutation} from "@apollo/client";
-import {Button} from "@rneui/themed"
 
 import {useAuth} from "../../AuthProvider";
 import {UPDATE_PASSWORD} from "../../AuthService";
 
 import AuthContainer from "../../components/AuthContainer";
-import TextBox from "../../components/AuthTextBox";
+import AuthForm from "../../components/AuthForm";
 
 import styles from "../styles";
+import {useTheme} from "@react-navigation/native";
 
 export default function ChangePassword({navigation}) {
+    //0 - DECLARE PROVIDERS VARIABLES
     const {updateCurrentUser} = useAuth();
+    const {colors} = useTheme()
 
     //1 - DECLARE VARIABLES
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,6 +60,8 @@ export default function ChangePassword({navigation}) {
         setIsSubmitting(true);
         try {
             let data = {currentPassword, newPassword};
+
+            console.log(data)
             await resetPassword({variables: data});
         } catch (error) {
             setSuccess(null);
@@ -67,55 +71,39 @@ export default function ChangePassword({navigation}) {
     }
 
     //==================================================================================================
-    const renderStatus = useCallback(() => {
-        let color = "red"
-        let text = error
-
-        if (error || success) {
-            if (success) {
-                color = "green";
-                text = success;
-            }
-            return (
-                <Text style={[{marginVertical: 12, color}]}>
-                    {text}
-                </Text>
-            )
+    const fields = [
+        {
+            label: "Current Password",
+            placeholder: "Current Password",
+            value: currentPassword,
+            autoCapitalize: 'none',
+            onChangeText: setCurrentPassword,
+            secureTextEntry: true
+        },
+        {
+            label: "New Password",
+            placeholder: "New Password",
+            value: newPassword,
+            onChangeText: setNewPassword,
+            secureTextEntry: true
         }
-
-        return null;
-    }, [success, error]);
+    ]
 
     // ==========================================================================================
     //5 - RENDER VIEW
     return (
-        <AuthContainer containerStyle={[styles.container]}>
+        <AuthContainer containerStyle={[{flex: 1, backgroundColor:colors.background}]}>
             <View style={[styles.wrapper]}>
-                <TextBox onChangeText={(text) => setCurrentPassword(text)}
-                         label={"Current Password"}
-                         placeholder={"Current Password"}
-                         secureTextEntry={true}
-                         value={currentPassword}
-                         containerStyle={{marginBottom: 20}}/>
-
-                <TextBox onChangeText={(text) => setNewPassword(text)}
-                         label={"New Password"}
-                         placeholder={"New Password"}
-                         secureTextEntry={true}
-                         value={newPassword}
-                         containerStyle={{marginBottom: 20}}/>
-
-                {renderStatus()}
-                <Button title={"Save"}
-                        onPress={onSubmit}
-                        loading={isSubmitting}
-                        disabled={disabled}
-                        containerStyle={[{marginTop: 20}]}
-                        buttonStyle={[styles.button]}
-                        disabledStyle={[styles.button]}
-                        titleStyle={styles.buttonText}/>
+                <AuthForm
+                    error={error}
+                    fields={fields}
+                    buttonTitle={"Save"}
+                    loading={isSubmitting}
+                    disabled={disabled}
+                    onSubmit={onSubmit}
+                    buttonStyle={{backgroundColor: colors.card}}
+                    containerStyle={{marginTop: 20}}/>
             </View>
-
         </AuthContainer>
     );
 };

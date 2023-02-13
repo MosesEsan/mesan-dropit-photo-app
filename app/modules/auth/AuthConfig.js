@@ -1,7 +1,7 @@
 
 export const SETTINGS_OPTIONS = [
     {
-        title: "Account Settings",
+        title: "Account",
         data: [
             {
                 key: "EDIT",
@@ -40,12 +40,12 @@ export const SETTINGS_OPTIONS = [
                 type: 'font-awesome-5',
                 chevron: true
             },
-            {
-                title: 'Notifications',
-                icon: 'bell-o',
-                type: 'font-awesome',
-                chevron: true
-            }
+            // {
+            //     title: 'Notifications',
+            //     icon: 'bell-o',
+            //     type: 'font-awesome',
+            //     chevron: true
+            // }
         ]
     },
 ];

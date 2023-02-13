@@ -10,24 +10,15 @@ import EditProfileScreen from "./scenes/Account/EditProfile";
 import ChangePasswordScreen from "./scenes/Account/ChangePassword";
 import BlockedUserScreen from "./scenes/Account/BlockedUser";
 import AccountSettingsScreen from "./scenes/Account/AccountSettings";
+import {DIScreenOptions} from "../../AppConfig";
 
-// SCREEN OPTIONS
-const screenOptions = {
-    headerStyle: {
-        backgroundColor: 'transparent',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-        fontWeight: 'bold',
-    }, headerBackTitle:" "
-}
 
 //Create Routes Stack
 const Stack = createStackNavigator();
 
 function AuthStack() {
     return (
-        <Stack.Navigator initialRouteName="Login" screenOptions={screenOptions}>
+        <Stack.Navigator initialRouteName="Login" screenOptions={DIScreenOptions}>
             <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/>
             <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: false}}/>
             <Stack.Screen name="TermsAndCondition" component={TermsAndConditionScreen} options={{title:"Terms And Condition", headerBackTitle: " "}}/>
@@ -37,11 +28,11 @@ function AuthStack() {
 }
 export function AccountStack() {
     return (
-        <Stack.Navigator initialRouteName="AccountSettings" screenOptions={screenOptions}>
+        <Stack.Navigator initialRouteName="AccountSettings" screenOptions={DIScreenOptions}>
             <Stack.Screen name="AccountSettings" component={AccountSettingsScreen}/>
             <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{title:"Edit Profile"}}/>
             <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} options={{title:"Change Password"}}/>
-            <Stack.Screen name="BlockedUser" component={BlockedUserScreen} options={{headerShown: false, title:"Blocked Users"}}/>
+            <Stack.Screen name="BlockedUser" component={BlockedUserScreen} options={{title:"Blocked Users"}}/>
         </Stack.Navigator>
     );
 }

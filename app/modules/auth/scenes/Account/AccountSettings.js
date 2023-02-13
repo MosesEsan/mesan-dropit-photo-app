@@ -13,17 +13,18 @@ import {
 
 import {ListItem, Icon, Button} from "@rneui/themed";
 import {useMutation} from "@apollo/client";
-
-import {useTheme} from "../../../ThemeProvider";
 import {useAuth} from "../../AuthProvider"
 
 import {DELETE_ACCOUNT} from "../../AccountService";
 import {SETTINGS_OPTIONS} from "../../AuthConfig";
+import {useTheme} from "@react-navigation/native";
+import {usePost} from "../../../post/PostProvider";
 
 export default function AccountSettings({navigation}) {
     //0 - DECLARE PROVIDERS VARIABLES
-    const {secondaryColor} = useTheme()
+    const {colors} = useTheme()
     const {handleLogout} = useAuth();
+    const {clearData} = usePost();
 
     //1 - DECLARE VARIABLES
     const [isDeleting, setIsDeleting] = useState(false);
@@ -93,7 +94,7 @@ export default function AccountSettings({navigation}) {
                 <View style={{
                     borderBottomWidth: 1,
                     borderColor: "rgb(57, 64, 71)",
-                    backgroundColor: secondaryColor,
+                    backgroundColor: colors.primary,
                     flexDirection: "row",
                     flex: 1,
                     padding: 12,
@@ -134,9 +135,12 @@ export default function AccountSettings({navigation}) {
     const renderFooter = () => {
         return (
             <Button title={"Logout"}
-                    onPress={async () => await handleLogout()}
+                    onPress={async () => {
+                        clearData()
+                        await handleLogout()
+                    }}
                     containerStyle={[{marginTop: 40, justifyContent: "center", alignItems: "center"}]}
-                    buttonStyle={[styles.button]}
+                    buttonStyle={[styles.button, {backgroundColor:colors.card}]}
                     disabledStyle={[styles.button]}
                     titleStyle={styles.buttonText}/>
         )
@@ -208,7 +212,6 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         justifyContent: "center",
         alignItems: 'center',
-        backgroundColor: "#C55110",
     },
 
     buttonText: {

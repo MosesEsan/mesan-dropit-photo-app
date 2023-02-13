@@ -1,8 +1,8 @@
-import React, {useMemo, useContext, useReducer} from 'react';
+import React, {useMemo, useContext, useReducer, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //IMPORT REDUCER
-import reducer, {initialState, LOGGED_IN, LOGGED_OUT, UPDATE_USER, CHECK_STATUS} from "./AuthReducer"
+import reducer, {initialState, LOGGED_IN, LOGGED_OUT, UPDATE_USER} from "./AuthReducer"
 
 // CONFIG KEYS [Storage Keys]===================================
 export const TOKEN_KEY = 'token';
@@ -15,11 +15,8 @@ const { Provider } = AuthContext;
 
 // 2 - PROVIDER===================================
 function AuthProvider(props) {
+    const [isCheckingStatus, setIsCheckingStatus] = useState(true);
     const [state, dispatch] = useReducer(reducer, initialState || {});
-
-    const setCheckStatus = async (isChecking) => {
-        dispatch({type: CHECK_STATUS, isChecking});
-    };
 
     // Get Auth state - Logs user in if data is available
     const getAuthState = async () => {
@@ -85,9 +82,10 @@ function AuthProvider(props) {
 
     const value = useMemo(() => {
         return {
-            state, setCheckStatus, getAuthState, handleLogin, handleLogout, updateCurrentUser
+            getAuthState,  isCheckingStatus, setIsCheckingStatus,
+            state, handleLogin, handleLogout, updateCurrentUser
         };
-    }, [state]);
+    }, [state, isCheckingStatus]);
 
     return (
         <Provider value={value}>

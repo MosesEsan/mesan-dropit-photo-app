@@ -8,7 +8,7 @@ import {useAuth} from "../AuthProvider";
 import {LOGIN} from "../AuthService";
 
 import AuthContainer from "../components/AuthContainer";
-import {AuthForm} from "../components/AuthTextBox";
+import AuthForm from "../components/AuthForm";
 
 import styles from "./styles";
 import DIText from "../../../components/DIText";
@@ -21,8 +21,8 @@ export default function Login(props) {
     const {handleLogin} = useAuth();
 
     //1 - DECLARE VARIABLES
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("testuser@dropit.com");
+    const [password, setPassword] = useState("testpass");
     const [error, setError] = useState(null);
 
     //===================================================================================================
@@ -85,7 +85,6 @@ export default function Login(props) {
                     loading={isLoggingIn}
                     disabled={disabled}
                     onSubmit={onSubmit}
-                    labelStyle={{fontFamily:'Poppins-Regular'}}
                     buttonStyle={{backgroundColor: colors.card}}
                     containerStyle={{marginTop: 20}}/>
                 <View style={{marginTop: 20}}>

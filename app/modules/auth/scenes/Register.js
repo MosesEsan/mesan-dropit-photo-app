@@ -7,7 +7,7 @@ import {useAuth} from "../AuthProvider";
 import {REGISTER} from "../AuthService";
 
 import AuthContainer from "../components/AuthContainer";
-import {AuthForm} from "../components/AuthTextBox";
+import AuthForm from "../components/AuthForm";
 
 import styles from "./styles";
 import {useTheme} from "@react-navigation/native";
@@ -86,7 +86,7 @@ export default function Register(props) {
                     error={error}
                     fields={fields}
                     buttonTitle={"REGISTER"}
-                    onPress={onSubmit}
+                    onSubmit={onSubmit}
                     loading={isRegistering}
                     disabled={disabled}
                     labelStyle={{fontFamily:'Poppins-Regular'}}

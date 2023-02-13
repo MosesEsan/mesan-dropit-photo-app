@@ -1,14 +1,16 @@
 import React, {useEffect} from "react";
 import {createStackNavigator} from "@react-navigation/stack";
-import {CreateStack, PictureViewScreen} from "./modules/post/PostRoute";
-import {UserStack} from "./modules/users/UserRoute";
+import PostStack, {CreateStack, PictureViewScreen} from "./modules/post/PostRoute";
+import UsersStack, {UserStack} from "./modules/users/UserRoute";
 
-import AppTabs from "./AppTabs";
 import messaging from "@react-native-firebase/messaging";
-import {Alert} from "react-native";
 import {useAuth} from "./modules/auth/AuthProvider";
-import Toast from "react-native-toast-message";
 import DirectionsScreen from "./modules/post/scenes/Directions";
+import NotificationStack from "./modules/notification/NotificationRoute";
+import {showToast} from "./AppUtil";
+import CommentsScreen from "./modules/comment/scenes/Comments";
+import TagUserScreen from "./modules/post/scenes/AddNew/TagUser";
+import {DIScreenOptions} from "./AppConfig";
 
 const detailOptions = {
     headerShown: false,
@@ -30,11 +32,7 @@ export default function AppStack() {
     useEffect(() => {
         //FOREGROUND
         const unsubscribe = messaging().onMessage(async remoteMessage => {
-            Toast.show({
-                type: 'info',
-                text1: remoteMessage.notification.title,
-                text2: remoteMessage.notification.body
-            });
+            showToast('info', remoteMessage.notification.title, remoteMessage.notification.body)
         });
 
         return unsubscribe;
@@ -48,15 +46,25 @@ export default function AppStack() {
     });
 
     return (
-        <Stack.Navigator>
+        <Stack.Navigator >
             <Stack.Group>
-                <Stack.Screen name="AppTabs" component={AppTabs}  options={{headerShown: false}}/>
+
+                <Stack.Screen name="Home" component={PostStack} options={{headerShown: false}}/>
+
                 <Stack.Screen name="Detail" component={PictureViewScreen} options={detailOptions}/>
-                <Stack.Screen name="User" component={UserStack} options={{headerShown: false}}/>
+                {/*<Stack.Screen name="Comments" component={CommentsScreen} options={{headerShown: true}}/>*/}
                 <Stack.Screen name="Directions" component={DirectionsScreen} options={{headerShown: false}}/>
+
+                <Stack.Screen name="Users" component={UsersStack} options={{headerShown: false}}/>
+                <Stack.Screen name="User" component={UserStack} options={{headerShown: false}}/>
+
+                <Stack.Screen name="Notifications" component={NotificationStack} options={{headerShown: false, gestureEnabled: false}}/>
+                <Stack.Screen name="MyProfile" component={UserStack} options={{headerShown: false, gestureEnabled: false}}/>
             </Stack.Group>
             <Stack.Group screenOptions={{presentation: 'modal'}}>
                 <Stack.Screen name="Create" component={CreateStack} options={{headerShown: false}}/>
+                <Stack.Screen name="Comments" component={CommentsScreen} options={DIScreenOptions}/>
+                <Stack.Screen name="TagUser" component={TagUserScreen} options={DIScreenOptions}/>
             </Stack.Group>
         </Stack.Navigator>
     );

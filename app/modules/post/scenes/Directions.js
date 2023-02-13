@@ -15,12 +15,12 @@ import moment from "moment";
 import {OutOfRangeView} from "../components/Card/Card";
 import CustomMarker from "../components/CustomMarker";
 
-import {useTheme} from "../../ThemeProvider";
 import DIHeader from "../../../components/DIHeader";
 import DIMapView from "../components/DIMapView";
 import {useLocation} from "../../../components/location/LocationProvider";
 import {Marker} from "react-native-maps";
 import {convertDate} from "../../../AppUtil";
+import {useTheme} from "@react-navigation/native";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyCkvKoGcVo1cvi-Gc5DYSHHgy8oBs3xQeU"
 
@@ -28,7 +28,7 @@ export default function DIDirections({navigation, route}) {
     //1 - DECLARE VARIABLES
     const {item} = route.params;
 
-    const {backgroundColor} = useTheme()
+    const {colors:{background}} = useTheme()
 
     //1 - DECLARE VARIABLES
     const [isLoading, setIsLoading] = useState(true);

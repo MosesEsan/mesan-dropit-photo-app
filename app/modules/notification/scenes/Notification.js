@@ -16,23 +16,22 @@ import moment from "moment";
 
 import CustomMarker from "../../post/components/CustomMarker";
 
-import {useTheme} from "../../ThemeProvider";
 import {useLocation} from "../../../components/location/LocationProvider";
 import {useAuth} from "../../auth/AuthProvider";
 
-import { myFromNow} from "../../post/helper";
 
 import CardContainer from "../../post/components/Card/CardContainer";
 import {GET_DROP} from "../../post/PostService";
 import {RightNavButton} from "../../../components/DIHeader";
 import {MetaContainer} from "../../post/scenes/Directions";
+import {convertDate} from "../../../AppUtil";
 
 export default function Directions({navigation, route}) {
     //1 - DECLARE VARIABLES
     const {notification} = route.params;
     const {height: windowHeight} = useWindowDimensions();
 
-    const {backgroundColor} = useTheme()
+    const {colors} = useTheme()
 
     const [drop, setDrop] = useState(null);
     const {state: {currentLocation}} = useLocation();
@@ -92,9 +91,9 @@ export default function Directions({navigation, route}) {
     //==========================================================================================
     // 5 - RENDER VIEW
     let milliseconds = moment(parseInt(notification.drop.createdAt)).valueOf();
-    const date = myFromNow(moment(milliseconds), moment())
+    const date = convertDate(notification.drop.createdAt)
     return (
-        <SafeAreaView style={[{flex: 1, backgroundColor}]}>
+        <SafeAreaView style={[{flex: 1, backgroundColor: colors.background}]}>
             <ScrollView>
                 <View style={{height: windowHeight * .55}}>
                     <CardContainer item={notification.drop} large={true} currentLocation={currentLocation}

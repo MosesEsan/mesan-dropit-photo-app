@@ -18,7 +18,7 @@ import Styles from '../components/AppStyles';
 import MapStyles from './MapStyles';
 import Directions from "../../../components/react-native-maps-navigation-master/src/modules/Directions";
 import DirectionCard, {formatDuration} from "./DirectionCard";
-import {useTheme} from "../../ThemeProvider";
+import {useTheme} from "@react-navigation/native";
 
 const {width, height} = Dimensions.get("window");
 const ASPECT_RATIO = width / height;
@@ -45,7 +45,7 @@ function DIMapView(props, parentRef) {
     const _map = useRef();
 
     const {
-        textColor,
+        colors,
     } = useTheme()
     //==================================================================================================
     //2 - MAIN CODE BEGINS HERE
@@ -106,7 +106,7 @@ function DIMapView(props, parentRef) {
                         routeSelected &&
                         <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
                             <View style={{flex: 1, marginRight: 12}}>
-                                <Text style={{fontWeight: "600", fontSize: 26, color: textColor}}>
+                                <Text style={{fontWeight: "600", fontSize: 26, color: colors.text}}>
                                     {formatDuration(routeSelected.duration.value)}
                                 </Text>
                                 <Text style={{color: "#bbb", fontSize: 15, opacity: 0.8}}>
@@ -117,7 +117,7 @@ function DIMapView(props, parentRef) {
                                     onPress={onStartNavigation}
                                     containerStyle={[styles.buttonContainer]}
                                     icon={{name: 'location-arrow', type: 'font-awesome', size: 19, color: '#fff'}}
-                                    buttonStyle={[styles.button, {backgroundColor:textColor}]}/>
+                                    buttonStyle={[styles.button, {backgroundColor:colors.text}]}/>
                         </View>
                     }
                 </View>
@@ -159,7 +159,7 @@ function DIMapView(props, parentRef) {
                         destination={destination}
                         apikey={apikey}
                         strokeWidth={6}
-                        strokeColor={textColor}
+                        strokeColor={colors.text}
                         optimizeWaypoints={true}
                         mode={routeSelected.travelMode}
                         onStart={(params) => {

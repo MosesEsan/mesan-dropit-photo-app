@@ -4,15 +4,16 @@ import {Image, StyleSheet} from "react-native";
 import {Button, ListItem} from "@rneui/themed";
 import {useMutation} from "@apollo/client";
 
-import {useTheme} from "../../ThemeProvider";
+// import {useTheme} from "../../ThemeProvider";
 import {FOLLOW_USER} from "../UserService";
+import {useTheme} from "@react-navigation/native";
 
 
 export default function UserItem({navigation, item, following, onError: onFollowError}) {
     //1 - DECLARE VARIABLES
     const [isFollowing, setIsFollowing] = useState(following);
 
-    const {backgroundColor, textColor} = useTheme()
+    const { colors} = useTheme()
 
     const [followUser, {loading}] = useMutation(FOLLOW_USER, {onError});
 
@@ -33,7 +34,8 @@ export default function UserItem({navigation, item, following, onError: onFollow
     //==========================================================================================
     // 5 - RENDER VIEW
     return (
-        <ListItem onPress={() => navigation.navigate("User", {screen:"Profile", params: {user: item}})} containerStyle={styles.container}>
+        <ListItem onPress={() => navigation.navigate("User", {screen:"Profile", params: {user: item}})}
+                  containerStyle={[styles.container, {backgroundColor:colors.background}]}>
             <Image source={{uri: item.image}} style={styles.image}/>
             <ListItem.Content>
                 <ListItem.Title style={{color: "#fff"}}>{item.name}</ListItem.Title>
@@ -43,10 +45,10 @@ export default function UserItem({navigation, item, following, onError: onFollow
                     loading={loading}
                     disabled={loading}
                     containerStyle={[{marginTop: 0}]}
-                    buttonStyle={[styles.button, {borderColor: textColor}, isFollowing ? {backgroundColor: textColor} : {backgroundColor: backgroundColor}]}
-                    disabledStyle={[{backgroundColor: backgroundColor}]}
-                    loadingStyle={[{backgroundColor: backgroundColor}]}
-                    titleStyle={[styles.buttonText, isFollowing ? {color: "#fff"} : {color: textColor}]}/>
+                    buttonStyle={[styles.button, {borderColor: colors.card}, isFollowing ? {backgroundColor: colors.card} : {backgroundColor: colors.background}]}
+                    disabledStyle={[{backgroundColor: colors.background}]}
+                    loadingStyle={[{backgroundColor: colors.background}]}
+                    titleStyle={[styles.buttonText, isFollowing ? {color: "#fff"} : {color: colors.card}]}/>
         </ListItem>
     )
 }
@@ -62,7 +64,6 @@ const styles = StyleSheet.create({
     container: {
         marginVertical: 4,
         marginHorizontal: 8,
-        backgroundColor: "rgb(30,30,30)",
         borderRadius: 6
     },
 

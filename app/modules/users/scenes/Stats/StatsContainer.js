@@ -3,12 +3,18 @@ import {useWindowDimensions} from 'react-native';
 import { TabView, TabBar } from 'react-native-tab-view';
 
 import UserStats from "./UserStats";
-import {useTheme} from "../../../ThemeProvider";
+import {useTheme} from "@react-navigation/native";
 
 export default function StatsContainer(props) {
     const {route} = props;
-
     const defaultIndex = route.params.index || 0;
+
+    //0 - DECLARE PROVIDERS VARIABLES
+    const layout = useWindowDimensions();
+    const {colors} = useTheme()
+
+    //==========================================================================================
+    //1 - DECLARE VARIABLES
     const [index, setIndex] = useState(defaultIndex);
 
     const [routes] = useState([
@@ -16,13 +22,8 @@ export default function StatsContainer(props) {
         { key: 'following', title: 'Following' },
     ]);
 
-    const layout = useWindowDimensions();
-    const {backgroundColor, textColor} = useTheme()
-
-    //==========================================================================================
-    // 2 - MAIN CODE BEGINS HERE
     //==================================================================================================
-    //4 - UI HANDLERS
+    //3 - UI HANDLERS
     const renderScene = ({ route }) => {
         return <UserStats {...props} type={route.key}/>;
     };
@@ -30,8 +31,8 @@ export default function StatsContainer(props) {
     const renderTabBar = props => (
         <TabBar
             {...props}
-            indicatorStyle={{ backgroundColor: textColor }}
-            style={{ backgroundColor }}
+            indicatorStyle={{ backgroundColor: colors.card }}
+            style={{ backgroundColor: colors.background }}
             labelStyle={{textTransform: "none"}}
         />
     );

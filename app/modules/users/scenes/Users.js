@@ -2,23 +2,18 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {SafeAreaView, Text} from 'react-native';
 
 import {useLazyQuery} from "@apollo/client";
-import Toast from "react-native-toast-message";
 import {EmptyView, MEListView} from "me-helper-views";
 
-import {useTheme} from "../../ThemeProvider";
 import {GET_USERS} from "../UserService";
 
 import UserItem from "../components/UserItem";
+import {showToast} from "../../../AppUtil";
+import {useTheme} from "@react-navigation/native";
 
 export default function Users(props) {
-    const {navigation} = props;
 
     //0 - DECLARE PROVIDERS VARIABLES
-    const  {backgroundColor} = useTheme()
-    const [getUsers, {refetch}] = useLazyQuery(GET_USERS, {
-        fetchPolicy: 'network-only', // Doesn't check cache before making a network request
-        onCompleted, onError
-    });
+    const  {colors} = useTheme()
 
     //==========================================================================================
     //1 - DECLARE VARIABLES
@@ -51,6 +46,10 @@ export default function Users(props) {
 
     //==================================================================================================
     //3 - GRAPHQL HANDLERS
+    const [getUsers, {refetch}] = useLazyQuery(GET_USERS, {
+        fetchPolicy: 'network-only', // Doesn't check cache before making a network request
+        onCompleted, onError
+    });
     function onCompleted(data) {
         if (data && data.users) {
             const result = data.users;
@@ -91,14 +90,6 @@ export default function Users(props) {
 
     //==================================================================================================
     //5 - ACTION HANDLERS
-    function showToast(type, title, message) {
-        Toast.show({
-            type: type,
-            text1: title,
-            text2: message
-        });
-    }
-
     const isFollowing = useCallback((id) => {
         return following.includes(id.toString())
     }, [following])
@@ -106,16 +97,16 @@ export default function Users(props) {
     //==========================================================================================
     // 6 - RENDER VIEW
     return (
-        <SafeAreaView style={[{flex: 1, backgroundColor}]}>
+        <SafeAreaView style={[{flex: 1}]}>
             <MEListView
                 isFetching={isFetching}
                 error={error}
-                activityIndicatorStyle={{backgroundColor}}
-                errorViewStyle={{backgroundColor}}
+                activityIndicatorStyle={{backgroundColor:colors.background}}
+                errorViewStyle={{backgroundColor:colors.background}}
                 data={users || []}
                 extraData={users || []}
                 initialNumToRender={10}
-                style={{paddingHorizontal: 0, flex:1,   backgroundColor}}
+                style={{paddingHorizontal: 0, flex:1}}
                 contentContainerStyle={{flexGrow: 1}}
                 renderItem={renderItem}
                 ListEmptyComponent={renderEmpty}

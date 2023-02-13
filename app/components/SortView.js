@@ -4,11 +4,9 @@ import {DISheet} from "./FilterView";
 import React, {useState, forwardRef} from "react";
 
 import {useSetting} from "../modules/setting/SettingProvider";
-import {useTheme} from "../modules/ThemeProvider";
 
 function SortView({height, onClose}, parentRef) {
     const {state: {radius: currentRadius, showAll:currentShowAll}, setRadius, setShowAll} = useSetting();
-    const {textColor} = useTheme();
 
     const [radius, setSelectedRadius] = useState(currentRadius);
 

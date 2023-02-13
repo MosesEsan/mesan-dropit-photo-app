@@ -1,17 +1,18 @@
 import React, {useRef} from "react";
 import {StyleSheet, Text, View} from "react-native";
-import {useTheme} from "../../ThemeProvider";
 import moment from "moment/moment";
 import {Button} from "@rneui/themed";
 import FastImage from "react-native-fast-image";
 
-import {OutOfRangeView} from "./Card/Card";
+import OutOfRangeView from "./Card/OutOfRange";
 import {convertDate} from "../../../AppUtil";
 
 export default function DirectionCard({item, routes, routeSelected, setRouteSelected}) {
     const date = convertDate(item.createdAt)
 
-    const {textColor, textColorLight} = useTheme()
+    const {
+        colors,
+    } = useTheme()
     return (
         <View style={{flex: 1, flexDirection: "row", borderRadius: 12, overflow: "hidden", margin: 15}}>
             <View style={{borderTopLeftRadius: 12, borderBottomLeftRadius: 12, overflow: "hidden"}}>
@@ -60,7 +61,7 @@ export default function DirectionCard({item, routes, routeSelected, setRouteSele
                                             name: key,
                                             type: 'material-community',
                                             size: 17,
-                                            color: routeSelected === route ? "#fff" : textColor
+                                            color: routeSelected === route ? "#fff" : colors.text
                                         }}
                                         containerStyle={[{
                                             flex: 1,
@@ -68,19 +69,19 @@ export default function DirectionCard({item, routes, routeSelected, setRouteSele
                                             justifyContent: "center",
                                             alignItems: "center",
                                             borderWidth: 1.5,
-                                            borderColor: textColor,
+                                            borderColor: colors.text,
                                             borderRadius: 50,
                                             height: 34,
                                             marginRight: 6
                                         },
-                                            routeSelected === route && {backgroundColor: textColorLight}
+                                            routeSelected === route && {backgroundColor: colors.text}
 
                                         ]}
                                         buttonStyle={[{
                                             flex: 1,
                                             backgroundColor: routeSelected === route ? "transparent" : "#fff"
                                         }]}
-                                        titleStyle={{color: routeSelected === route ? "#fff" : textColor, fontWeight: "600", fontSize: 14}}
+                                        titleStyle={{color: routeSelected === route ? "#fff" : colors.text, fontWeight: "600", fontSize: 14}}
                                 />
                             )
                         })

@@ -1,40 +1,35 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {Text, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {useLazyQuery} from "@apollo/client";
-import Toast from "react-native-toast-message";
 
-import {useTheme} from "../../../ThemeProvider";
 import {GET_USER_FOLLOWERS} from "../../UserService";
 
 import UserItem from "../../components/UserItem";
 import {DIListView} from "../../../../components/MeHelperViews";
 import {EmptyView} from "me-helper-views";
+import {useTheme} from "@react-navigation/native";
+import {showToast} from "../../../../AppUtil";
 
 export default function Followers(props) {
-
     const {user} = props.route.params;
     const type = props.type || null;
+
+    //0 - DECLARE PROVIDERS VARIABLES
+    const {colors} = useTheme()
 
     //1 - DECLARE VARIABLES
     const [data, setData] = useState([]);
     const [following, setFollowing] = useState([]);
-
     const [isFetching, setIsFetching] = useState(false);
     const [isRefreshing, setIsRefreshing] = useState(false);
     const [error, setError] = useState(null);
-
-    const {backgroundColor} = useTheme()
-
-    const [getUser, {refetch}] = useLazyQuery(GET_USER_FOLLOWERS, {
-        fetchPolicy: 'network-only', // Doesn't check cache before making a network request
-        onCompleted, onError
-    });
 
     //==========================================================================================
     // 2 - MAIN CODE BEGINS HERE
     useEffect(() => {
         (async () => getData())();
     }, []);
+
 
     //2b - GET DATA
     async function getData(refresh = false) {
@@ -51,6 +46,11 @@ export default function Followers(props) {
 
     //==================================================================================================
     //3 - GRAPHQL HANDLERS
+    const [getUser, {refetch}] = useLazyQuery(GET_USER_FOLLOWERS, {
+        fetchPolicy: 'network-only', // Doesn't check cache before making a network request
+        onCompleted, onError
+    });
+
     function onCompleted(resp) {
         if (resp && resp.user) {
             const result = resp['user'];
@@ -105,14 +105,6 @@ export default function Followers(props) {
 
     //==================================================================================================
     //5 - ACTION HANDLERS
-    function showToast(type, title, message) {
-        Toast.show({
-            type: type,
-            text1: title,
-            text2: message
-        });
-    }
-
     const isFollowing = useCallback((id) => {
         return following.includes(id.toString())
     }, [following])
@@ -120,16 +112,16 @@ export default function Followers(props) {
     //==========================================================================================
     // 6 - RENDER VIEW
     return (
-        <SafeAreaView style={[{flex: 1, backgroundColor}]}>
+        <SafeAreaView style={[{flex: 1, backgroundColor:colors.background }]}>
             <DIListView
                 isFetching={isFetching}
                 error={error}
-                activityIndicatorStyle={{backgroundColor}}
-                errorViewStyle={{backgroundColor}}
+                activityIndicatorStyle={{backgroundColor:colors.background }}
+                errorViewStyle={{backgroundColor:colors.background }}
                 data={data || []}
                 extraData={data || []}
                 initialNumToRender={10}
-                style={{paddingHorizontal: 0, flex: 1, backgroundColor}}
+                style={{paddingHorizontal: 0, flex: 1, backgroundColor:colors.background }}
                 contentContainerStyle={{flexGrow: 1}}
                 renderItem={renderItem}
                 ListEmptyComponent={renderEmpty}

@@ -15,8 +15,8 @@ import {useSetting, PUBLIC, PRIVATE} from "../modules/setting/SettingProvider";
 
 import SortView from "./SortView";
 import FilterView from "./FilterView";
+import {useTheme} from "@react-navigation/native";
 
-import {useTheme} from "../modules/ThemeProvider";
 
 export function DIContainer(props) {
     const sortRef = props.sortRef || useRef();
@@ -26,7 +26,7 @@ export function DIContainer(props) {
     const [toBeDeleted, setToBeDeleted] = useState(null)
     const {state: {radius, orderBy, filterType}, setOrderBy, setFilterType, setInRange} = useSetting();
 
-    const {textColor} = useTheme();
+    const {colors} = useTheme();
 
     //==================================================================================================
     //1B -NAVIGATION CONFIG
@@ -44,7 +44,6 @@ export function DIContainer(props) {
                     name: filterType === PRIVATE ? "user-tag" : "public",
                     size: 24,
                     onPress: () => filterRef.current.open(),
-                    // color: textColor,
                     color: "#fff",
                     type: filterType === PRIVATE ? "font-awesome-5" : "materialicon"
                 },
@@ -57,10 +56,6 @@ export function DIContainer(props) {
                 }
             ]
             props.navigation.setOptions({
-                // headerTitle: () => <CenterNav/>,
-                // headerRight: () => <RightNavButton buttons={buttons}/>,
-                // headerLeft: () => <Text style={{padding: 10, fontWeight: "700", fontSize: 21, color: textColor}}>
-                //     DropIt!</Text>,
             });
         }
 
@@ -109,7 +104,7 @@ export function DIContainer(props) {
                             icon: {
                                 name: "user-tag",
                                 size: 24,
-                                color: textColor,
+                                color: colors.text,
                                 type: "font-awesome-5"
                             },
                             onPress: () => {

@@ -3,7 +3,6 @@ import {SafeAreaView} from 'react-native';
 import {useLazyQuery} from "@apollo/client";
 
 import {GET_USER} from "../../UserService";
-import {useTheme} from "../../../ThemeProvider";
 import {useAuth} from "../../../auth/AuthProvider";
 
 import {useLocation} from "../../../../components/location/LocationProvider";
@@ -11,6 +10,7 @@ import ScrollCard from "../../../post/components/Card/ScrollCard";
 import CustomMarker from "../../../post/components/CustomMarker";
 import DIMapView from "../../../post/components/DIMap";
 import {RightNavButton} from "../../../../components/DIHeader";
+import {useTheme} from "@react-navigation/native";
 
 export default function UserDrops(props) {
     const {navigation, route} = props;
@@ -18,7 +18,7 @@ export default function UserDrops(props) {
     //0 - DECLARE PROVIDERS VARIABLES
     const {state: {isLoggedIn, currentUser}, handleLogout} = useAuth();
     const {state: {currentLocation}} = useLocation()
-    const {backgroundColor} = useTheme()
+    const {colors:{background}} = useTheme()
 
     //1 - DECLARE VARIABLES
     const [user, setUser] = useState(route.params.user);
@@ -127,7 +127,7 @@ export default function UserDrops(props) {
     //==========================================================================================
     // 6 - RENDER VIEW
     return (
-        <SafeAreaView style={[{flex: 1, backgroundColor}]}>
+        <SafeAreaView style={[{flex: 1, backgroundColor:background}]}>
             <DIMapView ref={mapRef}
                        data={data}
                        initialRegion={currentLocation}

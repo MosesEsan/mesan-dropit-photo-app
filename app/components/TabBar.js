@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {StyleSheet} from "react-native";
-import {createNavigationContainerRef} from "@react-navigation/native";
+import {createNavigationContainerRef, useTheme} from "@react-navigation/native";
 
-import {useTheme} from "../modules/ThemeProvider";
 import {useAuth} from "../modules/auth/AuthProvider";
 
 import FloatingActionBar from "./FloatingActionBar/FloatingActionBar";
@@ -13,7 +12,7 @@ export default function TabBar({navigation}) {
     //1 - DECLARE VARIABLES
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const {textColor, backgroundColor} = useTheme();
+    const {colors:{text, background}} = useTheme();
     const {state: { currentUser}} = useAuth();
 
     //==================================================================================================
@@ -45,23 +44,22 @@ export default function TabBar({navigation}) {
                 {
                     icon: 'home-outline',
                     color: 'rgb(130, 130, 130)',
-                    activeColor: textColor,
+                    activeColor: text,
                     type: 'ionicon',
                     style: styles.iconStyle
-                    // activeBackgroundColor: 'rgb(224, 243, 255)',
                 },
                 {
                     icon: "users",
                     color: 'rgb(130, 130, 130)',
                     type: "feather",
-                    activeColor: textColor,
+                    activeColor: text,
                     style: styles.iconStyle
                 },
                 {
                     icon: 'add-circle-outline',
                     size: 40,
                     color: '#fff',
-                    activeColor: textColor,
+                    activeColor: text,
                     type: 'ionicon',
                     style: styles.iconStyle
                 },
@@ -69,14 +67,14 @@ export default function TabBar({navigation}) {
                     icon: "bell",
                     color: 'rgb(130, 130, 130)',
                     type: "feather",
-                    activeColor: textColor,
+                    activeColor: text,
                     style: styles.iconStyle
                 },
                 {
                     icon: "user",
                     color: 'rgb(130, 130, 130)',
                     type: "feather",
-                    activeColor: textColor,
+                    activeColor: text,
                     style: styles.iconStyle
                 },
             ]}
@@ -94,7 +92,7 @@ export default function TabBar({navigation}) {
             }}
             currentIndex={currentIndex}
             setCurrentIndex={setCurrentIndex}
-            style={[styles.container, {backgroundColor}]}/>
+            style={[styles.container, {backgroundColor:background}]}/>
     );
 }
 

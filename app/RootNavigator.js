@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useColorScheme} from "react-native";
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -17,12 +17,14 @@ import AuthSplash from "./modules/auth/components/AuthSplash";
 
 import AppStack from "./AppRoute";
 import useNotification from "./hooks/useNotification";
+import {DIColors} from "./AppConfig";
 
 export default function RootNavigator() {
+    const [status, setStatus] = useState("")
 
     const scheme = useColorScheme();
     const {getCurrentLocation} = useLocation();
-    const {state: {isLoggedIn, currentUser, isCheckingStatus}, setCheckStatus, getAuthState} = useAuth();
+    const {state: {isLoggedIn, currentUser}, isCheckingStatus, setIsCheckingStatus, getAuthState} = useAuth();
     const [registerForPushNotifications, getInitialNotification, onNotificationOpenedApp] = useNotification();
 
     //1 - DECLARE VARIABLES
@@ -31,13 +33,24 @@ export default function RootNavigator() {
     useEffect(() => {
         (async () => {
             try {
+                console.log("Checking Auth State")
+                setStatus("Checking Auth State")
                 //Check Auth State
                 await getAuthState(true);
 
                 //If logged in, get the current location
                 if (isLoggedIn) {
-                    let onCallback = () => setCheckStatus(false)
-                    getCurrentLocation(onCallback, onCallback);
+                    console.log("Getting current location. Please Wait...")
+                    setStatus("Getting current location. Please Wait...")
+                    let onCallback = () => {
+                        console.log("Current Location Secured!!")
+                        setIsCheckingStatus(false)
+                    }
+                    getCurrentLocation(onCallback, () => {
+                        console.log("An error occurred when getting location.")
+                        alert("An error occurred")
+                        setIsCheckingStatus(false)
+                    });
                     await registerForPushNotifications()
                     // getInitialNotification(onCallback)
                     // onNotificationOpenedApp(onCallback)
@@ -46,7 +59,7 @@ export default function RootNavigator() {
                 alert(e)
             } finally {
                 setTimeout(() => {
-                    setCheckStatus(false)
+                    setIsCheckingStatus(false)
                 }, 1000)
             }
         })();
@@ -58,14 +71,7 @@ export default function RootNavigator() {
         dark: false,
         colors: {
             ...DefaultTheme.colors,
-            primary: "#121212",
-            secondary: "#191919",
-            background: "#0E0E0E",
-            white: '#ffffff',
-            card: '#5162FF',
-            text: "#1C1C1C",
-            border: '#B5B5B5',
-            // notification: 'rgb(255, 69, 58)',
+            ...DIColors
         },
     };
 

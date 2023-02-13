@@ -1,5 +1,9 @@
 import {Text} from "react-native";
-import React from "react";
+import React from "react";/**/
+// import {resolveSize} from "../modules/shared/components";
+
+
+
 
 export default function DIText(props){
 
@@ -37,3 +41,51 @@ export default function DIText(props){
             props?.style]} {...allProps}>{props.children}</Text>
     )
 }
+
+//
+// export function Text(
+//     props: React.ComponentProps<typeof RawText> & {
+//         children: string;
+//         small?: boolean;
+//         large?: boolean;
+//         xlarge?: boolean;
+//         xxlarge?: boolean;
+//         color?: string;
+//         center?: boolean;
+//         flex?: boolean;
+//         uppercase?: boolean;
+//         light?: boolean;
+//     }
+// ) {
+//     const {
+//         color,
+//         children,
+//         small,
+//         large,
+//         xlarge,
+//         style,
+//         center,
+//         flex,
+//         uppercase,
+//         light,
+//         ...otherProps
+//     } = props;
+//     const resolvedSize = resolveSize(props);
+//     return (
+//         <RawText
+//             style={[
+//                 styles[resolvedSize],
+//                 color ? { color } : undefined,
+//                 center ? styles.center : undefined,
+//                 flex ? styles.flex : undefined,
+//                 light ? styles.light : undefined,
+//                 style,
+//             ]}
+//             {...otherProps}
+//         >
+//             {typeof children === "string" && uppercase
+//                 ? children.toUpperCase()
+//                 : children}
+//         </RawText>
+//     );
+// }

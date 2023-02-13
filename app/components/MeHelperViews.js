@@ -1,21 +1,17 @@
 import React, {useLayoutEffect, useState,
 useRef} from "react";
 import {
-    ActivityIndicator,
-    FlatList, Keyboard,
+    Keyboard,
     KeyboardAvoidingView,
     SafeAreaView,
+
     Text,
     TouchableWithoutFeedback,
     View
 } from "react-native";
 
-import MasonryList from "@react-native-seoul/masonry-list";
-
-import {ErrorView} from "me-helper-views";
 
 import {useSetting, PUBLIC, PRIVATE} from "../modules/setting/SettingProvider";
-import {RightNavButton} from "./DIHeader";
 
 import SortView from "./SortView";
 import FilterView from "./FilterView";
@@ -60,12 +56,11 @@ export function DIContainer(props) {
                     type: "ionicon"
                 }
             ]
-
             props.navigation.setOptions({
-                // headerTitle: () => <CenterNav tabs={tabs}/>,
-                headerRight: () => <RightNavButton buttons={buttons}/>,
-                headerLeft: () => <Text style={{padding: 10, fontWeight: "700", fontSize: 21, color: textColor}}>
-                    DropIt!</Text>,
+                // headerTitle: () => <CenterNav/>,
+                // headerRight: () => <RightNavButton buttons={buttons}/>,
+                // headerLeft: () => <Text style={{padding: 10, fontWeight: "700", fontSize: 21, color: textColor}}>
+                //     DropIt!</Text>,
             });
         }
 
@@ -133,7 +128,6 @@ DIContainer.defaultProps = {
     containerStyle: {}
 }
 
-
 export function KeyboardAvoidingContainer(props) {
     return (
         <SafeAreaView style={[{flex: 1}, props.containerStyle]}>
@@ -148,63 +142,4 @@ export function KeyboardAvoidingContainer(props) {
 
 KeyboardAvoidingContainer.defaultProps = {
     containerStyle: {}
-}
-
-export function DIListView(props) {
-    const {isLoggedIn, isFetching, error, onRetry, grid} = props;
-
-    const ListEmptyComponent = () => {
-        if (isFetching) return <ActivityIndicator style={[{width: "100%"}, props.activityIndicatorStyle]}
-                                                  color={"white"}/>;
-        if (error) return <ErrorView message={error} textStyle={{color: "#fff"}} containerStyle={[props.errorViewStyle]}
-                       onPress={onRetry}/>
-
-        if (props.ListEmptyComponent) return props.ListEmptyComponent()
-    };
-
-    if (isLoggedIn === false) return <ErrorView message={props.loggedOutText} textStyle={{color: "#fff"}}
-                                                containerStyle={[props.loggedOutViewStyle]}
-                                                onPress={props.onLoggedOut}/>
-    else if (grid) return <MasonryList {...props}  ListEmptyComponent={ListEmptyComponent} data={isFetching ? [] : props.data}/>
-    return <FlatList {...props} ListEmptyComponent={ListEmptyComponent} data={isFetching ? [] : props.data}/>
-}
-
-DIListView.defaultProps = {
-    isLoggedIn: null,
-    isFetching: false,
-    error: null,
-    grid: false,
-    onRetry: null,
-    onLoggedOut: null,
-    errorViewStyle: {},
-    loggedOutViewStyle: {},
-    activityIndicatorStyle: {},
-    loggedOutText: "Not Logged In!",
-
-    data:[]
-}
-
-export function EmptyView(props) {
-    return (
-        <View style={[{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            paddingHorizontal: 14
-        }, props.containerStyle]}>
-            <Text style={{fontSize: 18, fontWeight: "bold", color: "#fff"}}>
-                {props.title}
-            </Text>
-            <Text style={{fontSize: 15, color: "#aaa", marginTop: 12, textAlign: "center"}}>
-                {props.message}
-            </Text>
-        </View>
-    )
-}
-
-EmptyView.defaultProps = {
-    title: "No Data to Display",
-    message: "An error has occurred",
-    containerStyle: {},
-    textStyle: {}
 }
